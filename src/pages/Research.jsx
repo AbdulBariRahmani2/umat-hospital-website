@@ -1,19 +1,27 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, FlaskConical, Microscope, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { researchPrograms } from "@/data/site";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 const icons = [FlaskConical, Microscope, BookOpen];
 
 export default function Research() {
   return (
     <main>
+      <Seo
+        title="Clinical Research at Ummat International Hospital"
+        description="Doctor-led clinical studies at UIH in Kabul. Stroke, surgery, and cancer research with ethics review and consent."
+        path="/research"
+        jsonLd={breadcrumbJsonLd([{ name: "Research", path: "/research" }])}
+      />
       <PageHero
-        eyebrow="Research & Innovation"
-        title={<>Where medicine meets the <span className="italic text-primary">frontier</span></>}
-        description="UIH invests in clinical research, medical innovation, and professional education — building the evidence base that shapes tomorrow’s care."
+        eyebrow="Research"
+        title="Clinical research at UIH"
+        description="We support studies led by practicing doctors, plus training. Patients who are invited to a study are always asked for consent."
         crumbs={[{ label: "Research" }]}
       />
 
@@ -37,7 +45,7 @@ export default function Research() {
           </div>
 
           <Reveal className="mt-16 max-w-3xl">
-            <h2 className="font-heading text-3xl font-semibold text-foreground">How research reaches the bedside</h2>
+            <h2 className="font-heading text-3xl font-semibold text-foreground">How a study reaches a patient</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Studies at UIH are proposed by practicing physicians, reviewed for ethics and feasibility, and designed so
               participation never replaces standard care. Findings are shared through teaching rounds and, where

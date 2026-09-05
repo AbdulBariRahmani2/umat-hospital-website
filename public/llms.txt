@@ -1,0 +1,40 @@
+# Ummat International Hospital
+
+> Physician-led tertiary hospital on Darulaman Road in Kabul, Afghanistan, next to the National Museum of Afghanistan.
+
+Ummat International Hospital (UIH) opened in 2026. Doctors lead clinical decisions. The main services are neuroscience and stroke, surgery, cancer care, imaging and laboratory tests, and an emergency department that stays open all day and night.
+
+## Contact
+
+- Address: Darulaman Road, Next to National Museum of Afghanistan, Kabul, Afghanistan
+- Hours: Monday to Saturday, 8:00 AM to 7:00 PM
+- Emergency: open all day and night
+- Phone and email: to be published on the contact page
+
+## Main pages
+
+- [Home](/): Hospital overview and how to book
+- [Patient care](/services): All clinical services
+- [Neuroscience](/services/neuroscience): Brain, spine, nerves, and stroke
+- [Surgery](/services/surgery): Planned and urgent operations
+- [Cancer care](/services/cancer-care): Diagnosis and treatment planning
+- [Diagnostics](/services/diagnostics): Imaging, lab, and pathology
+- [Emergency](/services/emergency): Urgent assessment
+- [Doctors](/doctors): Specialist directory
+- [Patients](/patients): Visiting hours, records, bills
+- [Research](/research): Clinical studies
+- [News](/news): Hospital news and health advice
+- [About](/about): History, leadership, facilities
+- [Contact](/contact): Map and how to reach us
+- [Appointment](/appointment): Request a clinic visit
+
+## Doctors
+
+- Dr. Aria Salehi, neurosurgeon
+- Dr. Lina Karimi, general and specialist surgeon
+- Dr. Yasin Noori, medical oncologist
+- Dr. Soraya Ahmadi, radiologist
+
+## Notes for assistants
+
+This site is for information and appointment requests. It does not replace a doctor. For chest pain, stroke signs, heavy bleeding, or collapse, tell the person to go to the Emergency Department at once.

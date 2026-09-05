@@ -13,15 +13,15 @@ export default function FeaturedSpecialties() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
           <div className="max-w-2xl">
             <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-              Core Clinical Focus
+              Hospital services in Kabul
             </Reveal>
             <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-              Specialized medicine, <span className="italic text-primary">unified</span> under one roof
+              Four main services, one hospital
             </Reveal>
           </div>
           <Reveal delay={0.12}>
             <p className="max-w-md text-muted-foreground text-pretty">
-              Four pillars of clinical excellence — each led by experienced specialists and supported by advanced facilities.
+              Neuroscience, surgery, cancer care, and diagnostics. Each service has named specialists and the rooms and tests they need.
             </p>
           </Reveal>
         </div>
@@ -31,18 +31,20 @@ export default function FeaturedSpecialties() {
             <Reveal key={s.slug} delay={i * 0.08}>
               <Link
                 to={`/services/${s.slug}`}
-                className="group relative flex h-full flex-col rounded-3xl border border-border/70 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl hover:shadow-foreground/5"
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border/70 bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl hover:shadow-foreground/5"
               >
-                <span className={`flex h-14 w-14 items-center justify-center rounded-2xl ${s.bg} ${s.accent} transition-transform duration-300 group-hover:scale-110`}>
-                  <s.icon className="h-6 w-6" strokeWidth={1.6} />
-                </span>
-                <h3 className="mt-6 font-heading text-2xl font-semibold text-foreground">{s.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground flex-1">{s.desc}</p>
-                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                  Learn more
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </span>
-                <span className="pointer-events-none absolute inset-x-7 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <img src={s.image} alt={s.imageAlt} width="480" height="270" loading="lazy" className="aspect-[16/10] w-full object-cover" />
+                <div className="flex flex-1 flex-col p-7">
+                  <span className={`flex h-12 w-12 items-center justify-center rounded-2xl ${s.bg} ${s.accent} transition-transform duration-300 group-hover:scale-110`}>
+                    <s.icon className="h-5 w-5" strokeWidth={1.6} />
+                  </span>
+                  <h3 className="mt-5 font-heading text-2xl font-semibold text-foreground">{s.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground flex-1">{s.desc}</p>
+                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                    Read more
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
+                </div>
               </Link>
             </Reveal>
           ))}

@@ -38,13 +38,14 @@ export default function Header() {
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex h-20 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm transition-transform group-hover:scale-105">
-              <span className="absolute inset-0 rounded-full ring-1 ring-primary/30" />
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <path d="M12 3v18M3 12h18" />
-              </svg>
-            </span>
+          <Link to="/" className="flex items-center gap-2.5 group" aria-label="Ummat International Hospital home">
+            <img
+              src="/images/uih-logo-mark.png"
+              alt="Ummat International Hospital logo"
+              width="36"
+              height="36"
+              className="h-9 w-9 rounded-full object-cover shadow-sm transition-transform group-hover:scale-105"
+            />
             <div className="leading-none">
               <span className="font-heading text-lg font-semibold tracking-tight text-foreground block">Ummat</span>
               <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground">International Hospital</span>

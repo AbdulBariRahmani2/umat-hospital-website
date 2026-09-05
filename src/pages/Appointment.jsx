@@ -1,14 +1,22 @@
+import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import AppointmentForm from "@/components/AppointmentForm";
 import Reveal from "@/components/Reveal";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export default function Appointment() {
   return (
     <main>
+      <Seo
+        title="Book a Hospital Appointment in Kabul | UIH"
+        description="Request a clinic visit at Ummat International Hospital in Kabul. Choose a department and a preferred date. Patient services will confirm."
+        path="/appointment"
+        jsonLd={breadcrumbJsonLd([{ name: "Appointment", path: "/appointment" }])}
+      />
       <PageHero
         eyebrow="Appointments"
-        title={<>Request a consultation with our <span className="italic text-primary">specialists</span></>}
-        description="Tell us who you would like to see and a preferred date. A member of the patient services team will confirm your appointment."
+        title="Book a hospital appointment in Kabul"
+        description="Tell us who you would like to see and a date that works. Patient services will confirm the visit."
         crumbs={[{ label: "Appointment" }]}
       />
 

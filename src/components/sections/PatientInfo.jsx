@@ -17,11 +17,11 @@ export default function PatientInfo() {
     <section className="relative py-24 lg:py-32 bg-secondary/40">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="max-w-2xl mb-14">
-          <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            Patients & Visitors
+            <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+            Patients and visitors
           </Reveal>
           <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-            Everything you need, <span className="italic text-primary">before</span> you arrive
+            Read this before you come in
           </Reveal>
         </div>
 

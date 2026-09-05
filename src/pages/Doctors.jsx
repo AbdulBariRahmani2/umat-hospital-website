@@ -2,10 +2,12 @@ import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Search } from "lucide-react";
 import { Image } from "@/components/ui/image";
+import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { doctors } from "@/data/doctors";
 import { specialties } from "@/data/specialties";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export default function Doctors() {
   const [searchParams] = useSearchParams();
@@ -28,10 +30,16 @@ export default function Doctors() {
 
   return (
     <main>
+      <Seo
+        title="Find a Doctor in Kabul | Ummat International Hospital"
+        description="Search doctors at Ummat International Hospital in Kabul by name or department. Book a neurosurgeon, surgeon, oncologist, or radiologist."
+        path="/doctors"
+        jsonLd={breadcrumbJsonLd([{ name: "Doctors", path: "/doctors" }])}
+      />
       <PageHero
-        eyebrow="Find a Doctor"
-        title={<>Experienced physicians, <span className="italic text-primary">leading</span> your care</>}
-        description="Search our specialist directory by name or department, then request an appointment with the physician who fits your needs."
+        eyebrow="Find a doctor"
+        title="Find a doctor in Kabul"
+        description="Search the UIH directory by name or department, then request a visit with the specialist you need."
         crumbs={[{ label: "Doctors" }]}
       />
 

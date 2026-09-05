@@ -12,10 +12,10 @@ export default function HealthInsights() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
           <div className="max-w-2xl">
             <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-              Health & Medical Insights
+              Health advice
             </Reveal>
             <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-              Knowledge that <span className="italic text-primary">empowers</span> better health
+              Plain words from our doctors
             </Reveal>
           </div>
           <Reveal delay={0.12}>
@@ -43,7 +43,6 @@ export default function HealthInsights() {
                 <p className="mt-4 max-w-lg text-muted-foreground text-pretty">{feat.excerpt}</p>
                 <div className="mt-6 flex items-center gap-4 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {feat.read}</span>
-                  <span>·</span>
                   <span>{feat.date}</span>
                 </div>
               </div>
@@ -62,7 +61,6 @@ export default function HealthInsights() {
                     <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{a.excerpt}</p>
                     <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
                       <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {a.read}</span>
-                      <span>·</span>
                       <span>{a.date}</span>
                     </div>
                   </div>

@@ -4,7 +4,7 @@ export const hospital = {
   address: "Darulaman Road, Next to National Museum of Afghanistan, Kabul, Afghanistan",
   phone: "To be provided",
   email: "To be provided",
-  hours: "Mon–Sat: 8:00 AM – 7:00 PM · Emergency 24/7",
+  hours: "Monday to Saturday, 8:00 AM to 7:00 PM. Emergency care is open all day and night.",
 };
 
 export const navLinks = [
@@ -29,7 +29,7 @@ export const footerColumns = [
     ],
   },
   {
-    title: "Patients & Visitors",
+    title: "Patients and Visitors",
     links: [
       { label: "Before Your Visit", to: "/patients#before-your-visit" },
       { label: "Visiting Hours", to: "/patients#visiting-hours" },
@@ -44,14 +44,14 @@ export const footerColumns = [
       { label: "About Us", to: "/about" },
       { label: "Leadership", to: "/about#leadership" },
       { label: "Facilities", to: "/about#facilities" },
-      { label: "Quality & Safety", to: "/about#quality" },
+      { label: "Quality and Safety", to: "/about#quality" },
       { label: "Careers", to: "/about#careers" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "News & Insights", to: "/news" },
+      { label: "News and Health Advice", to: "/news" },
       { label: "Health Articles", to: "/news" },
       { label: "Research", to: "/research" },
       { label: "Find a Doctor", to: "/doctors" },
@@ -70,94 +70,94 @@ export const legalLinks = [
 export const patientGuides = [
   {
     id: "before-your-visit",
-    title: "Before Your Visit",
-    desc: "Registration, admission, and what to bring.",
+    title: "Before your visit",
+    desc: "What to bring and how registration works.",
     points: [
-      "Bring a government-issued ID, any referral letter, and a list of current medications.",
-      "Arrive 20 minutes early for outpatient appointments so registration can be completed calmly.",
-      "If you have previous imaging or laboratory results, bring copies or ask the referring clinic to send them.",
-      "A family member may accompany you, especially if you expect a longer consultation or procedure.",
+      "Bring a government photo ID, any referral letter, and a written list of medicines you take.",
+      "Please arrive 20 minutes early for a clinic visit so the desk can register you without rush.",
+      "If you have older scans or lab papers, bring the copies or ask the referring clinic to send them.",
+      "A family member can come with you, which helps if the visit may take longer or if you need a translator.",
     ],
   },
   {
     id: "visiting-hours",
-    title: "Visiting Hours",
-    desc: "Daily schedules and visitor guidelines.",
+    title: "Visiting hours",
+    desc: "When family and friends can come to the ward.",
     points: [
-      "General wards: 10:00 AM – 12:00 PM and 4:00 PM – 7:00 PM.",
-      "Intensive care visits are shorter and arranged with the nurse in charge.",
-      "Children may visit when the clinical team agrees it is appropriate and safe.",
-      "Please keep noise low, wash hands on arrival, and step out when examinations are underway.",
+      "General wards: 10:00 AM to 12:00 PM and 4:00 PM to 7:00 PM.",
+      "Intensive care visits are shorter and set with the nurse in charge.",
+      "Children may visit when the clinical team agrees it is safe.",
+      "Please keep voices low, wash your hands when you arrive, and step out when a doctor is examining the patient.",
     ],
   },
   {
     id: "patient-rights",
-    title: "Patient Safety & Rights",
-    desc: "Our commitment to your dignity and safety.",
+    title: "Patient safety and rights",
+    desc: "How we treat you and what you can ask for.",
     points: [
-      "You have the right to understand your diagnosis, options, and the purpose of each test or procedure.",
-      "Care is provided without discrimination, and personal information is handled confidentially.",
-      "You may ask for a second opinion or request that a family member be included in discussions.",
-      "If something does not feel safe, tell a nurse or physician immediately — we want to hear it.",
+      "You have the right to hear your diagnosis, the choices in front of you, and why a test or procedure is being offered.",
+      "Care is given without discrimination. Your personal details stay confidential.",
+      "You may ask for a second opinion or ask that a family member sit in on the discussion.",
+      "If something does not feel safe, tell a nurse or doctor at once. We would rather hear it early.",
     ],
   },
   {
     id: "medical-records",
-    title: "Medical Records",
-    desc: "How to request copies of your clinical information.",
+    title: "Medical records",
+    desc: "How to request copies of your notes and reports.",
     points: [
-      "Written requests for records can be submitted at the patient services desk.",
-      "Please allow a few working days for copies of notes, imaging reports, or discharge summaries.",
-      "Records are released to the patient or to a person they have authorized in writing.",
-      "For continuing care, we can send reports directly to a referring physician when requested.",
+      "You can submit a written request at the patient services desk.",
+      "Please allow a few working days for notes, imaging reports, or a discharge summary.",
+      "Records go to the patient or to a person the patient has named in writing.",
+      "If another doctor is continuing your care, we can send reports to that clinic when you ask.",
     ],
   },
   {
     id: "billing",
-    title: "Billing Information",
-    desc: "Estimates, invoices, and payment questions.",
+    title: "Bills and payments",
+    desc: "Estimates, invoices, and questions about charges.",
     points: [
-      "Ask patient services for an estimate before planned procedures whenever possible.",
-      "Itemized invoices are available after discharge or at the end of an outpatient visit.",
-      "Payment methods and any available assistance options can be discussed privately with billing staff.",
-      "If a charge is unclear, request an explanation — you should never feel rushed through a bill.",
+      "Ask patient services for an estimate before a planned procedure when you can.",
+      "You can request an itemized bill after discharge or at the end of a clinic visit.",
+      "Payment options can be discussed in private with the billing desk.",
+      "If a line on the bill is unclear, ask for an explanation. You should not be hurried through it.",
     ],
   },
 ];
 
 export const leadership = [
-  { name: "To be announced", role: "Hospital Director", focus: "Operations, strategy, and campus development" },
-  { name: "To be announced", role: "Medical Director", focus: "Clinical standards and physician leadership" },
-  { name: "To be announced", role: "Chief of Nursing", focus: "Nursing practice, safety, and patient experience" },
-  { name: "To be announced", role: "Director of Quality", focus: "Audit, infection control, and accreditation readiness" },
+  { name: "To be announced", role: "Hospital Director", focus: "Day-to-day running of the hospital and campus plans" },
+  { name: "To be announced", role: "Medical Director", focus: "Clinical standards and doctor leadership" },
+  { name: "To be announced", role: "Chief of Nursing", focus: "Nursing practice, safety, and how patients are looked after" },
+  { name: "To be announced", role: "Director of Quality", focus: "Audit, infection control, and readiness for review" },
 ];
 
 export const facilities = [
-  { title: "Inpatient wards", desc: "Physician-led units for medical, surgical, and specialty care." },
-  { title: "Operating theatres", desc: "Equipped for general, specialized, and urgent procedures." },
-  { title: "Diagnostics wing", desc: "Imaging, laboratory, and pathology in one coordinated service." },
-  { title: "Emergency department", desc: "Open 24/7 for assessment, stabilization, and urgent referral." },
-  { title: "Consultation suites", desc: "Outpatient rooms designed for privacy and family discussion." },
-  { title: "Education spaces", desc: "Rooms for teaching, case review, and professional development." },
+  { title: "Inpatient wards", desc: "Beds for medical, surgical, and specialty patients, with doctors on the ward each day." },
+  { title: "Operating theatres", desc: "Rooms set up for planned operations and urgent cases." },
+  { title: "Diagnostics wing", desc: "Imaging, laboratory tests, and pathology in one part of the hospital." },
+  { title: "Emergency department", desc: "Open all day and night for assessment, first treatment, and urgent referral." },
+  { title: "Consultation rooms", desc: "Clinic rooms where you can speak with a doctor in private, with space for family." },
+  { title: "Teaching rooms", desc: "Rooms used for case review and training of doctors and nurses." },
 ];
 
 export const researchPrograms = [
   {
-    title: "Clinical Research",
+    title: "Clinical research",
     n: "12",
     sub: "active programs",
-    desc: "Physician-led studies in stroke, surgical outcomes, and oncology pathways, conducted with ethics review and informed consent.",
+    desc: "Doctor-led studies on stroke, surgery results, and cancer pathways. Each study goes through ethics review, and patients are asked for consent.",
   },
   {
-    title: "Medical Innovation",
+    title: "Practice studies",
     n: "8",
     sub: "ongoing studies",
-    desc: "Evaluation of diagnostic protocols and care models that can shorten time-to-treatment for complex patients.",
+    desc: "We review how we diagnose and treat people so we can shorten the wait between first visit and a clear plan.",
   },
   {
-    title: "Publications",
+    title: "Published papers",
     n: "30+",
     sub: "peer-reviewed",
-    desc: "Selected findings are prepared for peer-reviewed publication so local practice can contribute to the wider evidence base.",
+    desc: "Some findings are written up for journals so work done in Kabul can be read by other hospitals.",
   },
 ];

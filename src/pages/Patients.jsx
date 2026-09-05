@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ClipboardList, Clock, ShieldCheck, FileText, Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { patientGuides } from "@/data/site";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 const icons = {
   "before-your-visit": ClipboardList,
@@ -16,11 +18,17 @@ const icons = {
 export default function Patients() {
   return (
     <main>
+      <Seo
+        title="Patients and Visitors | Visiting Hours at UIH Kabul"
+        description="Visiting hours, what to bring, patient rights, medical records, and bills at Ummat International Hospital on Darulaman Road in Kabul."
+        path="/patients"
+        jsonLd={breadcrumbJsonLd([{ name: "Patients", path: "/patients" }])}
+      />
       <PageHero
-        eyebrow="Patients & Visitors"
-        title={<>Everything you need, <span className="italic text-primary">before</span> you arrive</>}
-        description="Practical information for registration, visiting hours, records, billing, and your rights as a patient at UIH."
-        crumbs={[{ label: "Patients & Visitors" }]}
+        eyebrow="Patients and visitors"
+        title="If you are coming to the hospital"
+        description="Registration, visiting hours, records, bills, and your rights as a patient at Ummat International Hospital in Kabul."
+        crumbs={[{ label: "Patients and Visitors" }]}
       />
 
       <section className="relative py-20 lg:py-28">

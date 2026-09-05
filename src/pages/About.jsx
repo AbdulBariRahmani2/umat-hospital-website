@@ -1,18 +1,26 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import WhyUIH from "@/components/sections/WhyUIH";
 import Reveal from "@/components/Reveal";
 import { leadership, facilities } from "@/data/site";
+import { breadcrumbJsonLd, hospitalJsonLd } from "@/lib/seo";
 
 export default function About() {
   return (
     <main>
+      <Seo
+        title="About Ummat International Hospital in Kabul"
+        description="UIH opened in 2026 on Darulaman Road in Kabul. A physician-led tertiary hospital for neuroscience, surgery, cancer care, and diagnostics."
+        path="/about"
+        jsonLd={[hospitalJsonLd(), breadcrumbJsonLd([{ name: "About", path: "/about" }])]}
+      />
       <PageHero
         eyebrow="About UIH"
-        title={<>A physician-led hospital built for <span className="italic text-primary">Kabul</span></>}
-        description="Founded in 2026, Ummat International Hospital is a tertiary care institution where experienced physicians lead clinical decisions — and every patient is treated as a person, not a procedure."
+        title="About Ummat International Hospital"
+        description="We opened in 2026 on Darulaman Road, next to the National Museum. Senior doctors lead the clinical work. Patients are treated as people, not as a slot on a list."
         crumbs={[{ label: "About" }]}
       />
 
@@ -24,7 +32,7 @@ export default function About() {
             Leadership
           </Reveal>
           <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-            The people guiding our <span className="italic text-primary">standard</span>
+            Who runs the hospital
           </Reveal>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {leadership.map((person, i) => (
@@ -49,7 +57,7 @@ export default function About() {
             Facilities
           </Reveal>
           <Reveal as="h2" delay={0.06} className="mt-3 max-w-2xl font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-            A campus designed around <span className="italic text-primary">care</span>
+            Rooms and wards on the Kabul campus
           </Reveal>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {facilities.map((f, i) => (
@@ -68,16 +76,14 @@ export default function About() {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="max-w-3xl">
             <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-              Quality & Safety
+              Quality and safety
             </Reveal>
             <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-              International standards, practiced <span className="italic text-primary">daily</span>
+              Written rules, checked in daily work
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-5 text-muted-foreground leading-relaxed text-pretty">
-                From admission to discharge, UIH protocols are built on continuous audit, infection control, and a culture
-                that does not compromise on patient safety. Clinical teams review outcomes, escalate concerns early, and
-                treat every near-miss as a chance to improve.
+                From admission to discharge we use infection control, audit, and a habit of speaking up early. Teams look at outcomes. A near miss is treated as a lesson, not something to hide.
               </p>
             </Reveal>
           </div>
@@ -92,12 +98,11 @@ export default function About() {
                 Careers
               </Reveal>
               <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-                Join a team still being <span className="italic text-primary">built</span> with care
+                Work with us
               </Reveal>
               <Reveal delay={0.12}>
                 <p className="mt-5 text-muted-foreground text-pretty">
-                  We welcome physicians, nurses, and allied professionals who want to help establish a tertiary hospital
-                  worthy of the patients it serves. Enquiries can be sent through our contact team.
+                  We welcome doctors, nurses, and other health staff who want to help build a tertiary hospital that Kabul can rely on. Write through the contact page.
                 </p>
               </Reveal>
             </div>

@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, CalendarPlus, Siren, ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Image } from "@/components/ui/image";
 import Reveal from "@/components/Reveal";
 
-const heroImg = "https://media.base44.com/images/public/6a9a40678987c8c77881f46a/9f3cc1f0b_generated_09d1a488.jpg";
+const heroImg = "/images/hospital-entrance-kabul.png";
 
 const quickActions = [
-  { icon: Search, label: "Find a Doctor", desc: "Search by specialty or name", href: "/doctors" },
-  { icon: CalendarPlus, label: "Book Appointment", desc: "Request a consultation", href: "/appointment" },
-  { icon: Siren, label: "Emergency Services", desc: "24/7 urgent care", href: "/services/emergency", urgent: true },
+  { icon: Search, label: "Find a doctor", desc: "Search by name or department", href: "/doctors" },
+  { icon: CalendarPlus, label: "Book a visit", desc: "Request a clinic appointment", href: "/appointment" },
+  { icon: Siren, label: "Emergency", desc: "Open all day and night", href: "/services/emergency", urgent: true },
 ];
 
 export default function Hero() {
@@ -30,30 +29,28 @@ export default function Hero() {
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                Your Health, Our Priority
+                Hospital in Kabul
               </span>
             </Reveal>
 
             <Reveal delay={0.08} as="h1" className="mt-6 font-heading text-[2.75rem] sm:text-5xl lg:text-[4.25rem] leading-[1.05] font-semibold tracking-tight text-foreground text-balance">
-              The Future of
-              <br className="hidden sm:block" /> Specialized Care
-              <span className="block text-primary italic font-normal">in Kabul</span>
+              Ummat International
+              <br className="hidden sm:block" /> Hospital in Kabul
             </Reveal>
 
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground text-pretty">
-                Ummat International Hospital is a physician-led tertiary care institution — uniting neuroscience,
-                surgery, cancer care, and advanced diagnostics with a patient-centered approach.
+                A physician-led hospital on Darulaman Road for neuroscience, surgery, cancer care, hospital tests, and emergency cases. Doctors make the clinical calls. You and your family get a plan you can follow.
               </p>
             </Reveal>
 
             <Reveal delay={0.24}>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Button asChild size="lg" className="rounded-full px-7 shadow-md">
-                  <Link to="/appointment">Book Appointment <ArrowRight className="ml-1.5 h-4 w-4" /></Link>
+                  <Link to="/appointment">Book a visit <ArrowRight className="ml-1.5 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-full px-7">
-                  <Link to="/services">Explore Specialties</Link>
+                  <Link to="/services">See our services</Link>
                 </Button>
               </div>
             </Reveal>
@@ -75,7 +72,7 @@ export default function Hero() {
                     ))}
                   </div>
                   <p className="mt-1 text-muted-foreground">
-                    <span className="font-semibold text-foreground">Trusted</span> by 10,000+ patients
+                    <span className="font-semibold text-foreground">Seen</span> by more than 10,000 patients
                   </p>
                 </div>
               </div>
@@ -86,11 +83,13 @@ export default function Hero() {
           <div className="lg:col-span-5">
             <Reveal delay={0.2} className="relative">
               <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-foreground/10 ring-1 ring-border/60">
-                <Image
+                <img
                   src={heroImg}
-                  alt="Ummat International Hospital facility at golden hour"
+                  alt="Entrance to Ummat International Hospital on Darulaman Road in Kabul"
+                  width="720"
+                  height="900"
                   className="aspect-[4/5] w-full object-cover"
-                  fittingType="fill"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">

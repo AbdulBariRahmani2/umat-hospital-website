@@ -9,20 +9,21 @@ export default function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10 pt-20 pb-10">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
-            <Link to="/" className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M12 3v18M3 12h18" />
-                </svg>
-              </span>
+            <Link to="/" className="flex items-center gap-2.5" aria-label="Ummat International Hospital home">
+              <img
+                src="/images/uih-logo-mark.png"
+                alt="Ummat International Hospital logo"
+                width="36"
+                height="36"
+                className="h-9 w-9 rounded-full object-cover"
+              />
               <div className="leading-none">
                 <span className="font-heading text-lg font-semibold block">Ummat</span>
                 <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-background/50">International Hospital</span>
               </div>
             </Link>
             <p className="mt-6 max-w-sm text-sm text-background/60 leading-relaxed">
-              A physician-led tertiary care hospital in Kabul — uniting neuroscience, surgery, cancer care, and advanced
-              diagnostics with patient-centered compassion.
+              A physician-led hospital in Kabul for neuroscience, surgery, cancer care, diagnostics, and emergency cases.
             </p>
             <div className="mt-6 space-y-2.5 text-sm text-background/70">
               <p className="flex items-start gap-2.5"><MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" /> {hospital.address}</p>

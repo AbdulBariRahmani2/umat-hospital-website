@@ -6,23 +6,23 @@ import Reveal from "@/components/Reveal";
 const values = [
   {
     icon: Award,
-    title: "Commitment to Excellence",
-    desc: "We hold ourselves to the highest clinical standards, driven by evidence-based care and continuous professional development across every department.",
+    title: "High clinical standards",
+    desc: "We follow proven practice and keep training our staff. Each department is expected to review its results and fix problems when they show up.",
   },
   {
     icon: HeartHandshake,
-    title: "Patient-Centered Approach",
-    desc: "Every decision begins with the patient. We design pathways around dignity, clarity, and compassionate communication — not protocol alone.",
+    title: "The patient comes first",
+    desc: "We start with the person in the room. You should leave knowing what is wrong, what we suggest, and why. Dignity is not optional.",
   },
   {
     icon: Microscope,
-    title: "Innovation & Evidence",
-    desc: "Advanced diagnostics and modern surgical techniques, grounded in research and a culture of continuous learning.",
+    title: "Tests and surgery that match the case",
+    desc: "We use the imaging and operations that the case needs, not the ones that sound impressive. New methods are used when the evidence supports them.",
   },
   {
     icon: Users,
-    title: "Collaboration & Compassion",
-    desc: "Multidisciplinary teams working together with integrity — for the patient, the family, and the community we serve.",
+    title: "Teams that talk to each other",
+    desc: "Neurology, surgery, cancer, and diagnostics sit in the same hospital so your file does not get lost between buildings.",
   },
 ];
 
@@ -39,12 +39,11 @@ export default function WhyUIH() {
               Why Ummat International Hospital
             </Reveal>
             <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-              A physician-led model built on <span className="italic text-primary">trust</span>
+              Doctors lead the work. You are not a number.
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-5 text-muted-foreground text-pretty max-w-lg">
-                Founded in 2026, UIH is a tertiary care institution where experienced physicians lead clinical decisions —
-                and where every patient is treated as a person, not a procedure.
+                UIH opened in 2026 as a tertiary hospital in Kabul. Senior doctors make the clinical decisions. We treat the person in front of us, not only the scan or the operation.
               </p>
             </Reveal>
 
@@ -96,11 +95,10 @@ export default function WhyUIH() {
               <div className="relative">
                 <ShieldCheck className="h-10 w-10 text-primary" strokeWidth={1.5} />
                 <h3 className="mt-6 font-heading text-3xl font-semibold leading-tight">
-                  Quality & Safety at the core of everything
+                  Safety checks from admission to discharge
                 </h3>
                 <p className="mt-4 text-background/70 leading-relaxed">
-                  From admission to discharge, our protocols are built on international standards, continuous audit, and a
-                  culture that never compromises on patient safety.
+                  We follow written protocols, infection control, and regular audit. If something nearly goes wrong, we look at it. Patient safety is not a slogan on the wall.
                 </p>
 
                 <div className="mt-10 grid grid-cols-2 gap-6">

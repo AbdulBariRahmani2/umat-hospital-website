@@ -12,10 +12,10 @@ export default function FeaturedDoctors() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
           <div className="max-w-2xl">
             <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-              Meet Our Specialists
+              Doctors at UIH
             </Reveal>
             <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-              Experienced physicians, <span className="italic text-primary">leading</span> your care
+              Specialists you can book by name
             </Reveal>
           </div>
           <Reveal delay={0.12}>

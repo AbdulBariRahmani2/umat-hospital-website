@@ -1,0 +1,18 @@
+{
+  "name": "Ummat International Hospital",
+  "short_name": "UIH Kabul",
+  "description": "Physician-led tertiary hospital on Darulaman Road in Kabul. Neuroscience, surgery, cancer care, diagnostics, and emergency care.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F6F2",
+  "theme_color": "#0F766E",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/images/uih-logo-mark.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,40 +1,46 @@
 import { useLocation } from "react-router-dom";
+import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 const pages = {
   "/privacy": {
     title: "Privacy Policy",
+    description: "How Ummat International Hospital in Kabul handles personal and clinical information collected through this website and at the hospital.",
     eyebrow: "Legal",
     paragraphs: [
-      "Ummat International Hospital collects only the information needed to provide care, respond to appointment requests, and operate this website.",
-      "Clinical records are handled according to professional confidentiality. Website enquiry details are used to contact you about the request you submitted and are not sold to third parties.",
-      "If you have a question about how your information is stored or shared, please contact the hospital through the details on the Contact page.",
+      "Ummat International Hospital collects only what we need to provide care, answer appointment requests, and run this website.",
+      "Clinical records stay under professional confidentiality. Details you send through the website are used to contact you about that request. We do not sell them.",
+      "If you have a question about how your information is stored or shared, use the contact page.",
     ],
   },
   "/terms": {
     title: "Terms of Use",
+    description: "Terms for using the Ummat International Hospital website. This site does not create a doctor-patient relationship.",
     eyebrow: "Legal",
     paragraphs: [
-      "This website is provided to help patients and visitors learn about Ummat International Hospital and request care. Content is for general information and may be updated as services develop.",
-      "Using this site does not create a physician–patient relationship. Appointment requests are not confirmed until the hospital contacts you.",
-      "Please do not use the website for emergencies. Go to the Emergency Department or seek immediate local help.",
+      "This website helps patients and visitors learn about Ummat International Hospital and request care. The text is general information and may change as services change.",
+      "Using this site does not create a doctor-patient relationship. An appointment request is not booked until the hospital confirms it with you.",
+      "Do not use the website for emergencies. Go to the Emergency Department or get local help at once.",
     ],
   },
   "/disclaimer": {
     title: "Medical Disclaimer",
+    description: "Health articles on the UIH website are for information only and are not a diagnosis or a substitute for seeing a doctor.",
     eyebrow: "Legal",
     paragraphs: [
-      "Articles and service descriptions on this website are educational. They are not a diagnosis, prescription, or substitute for a consultation with a qualified clinician.",
-      "If you are worried about symptoms, book an appointment or attend emergency care. Do not delay seeking help because of something you read online.",
+      "Articles and service pages on this website are for education. They are not a diagnosis, a prescription, or a substitute for seeing a qualified doctor.",
+      "If you are worried about symptoms, book a visit or go to emergency. Do not delay care because of something you read online.",
     ],
   },
   "/accessibility": {
     title: "Accessibility",
+    description: "How Ummat International Hospital tries to keep this website usable, and how to ask for information in another format.",
     eyebrow: "Legal",
     paragraphs: [
-      "UIH aims to make this website usable for visitors with a range of abilities, including clear headings, keyboard-accessible navigation, and readable contrast.",
-      "If you encounter a barrier on the site or need information in another format, please contact us and we will do our best to help.",
+      "We try to keep this website usable for people with a range of abilities. Pages use clear headings, keyboard navigation, and readable contrast.",
+      "If a page is hard to use or you need the same information in another format, contact us and we will do what we can.",
     ],
   },
 };
@@ -45,6 +51,12 @@ export default function Legal() {
 
   return (
     <main>
+      <Seo
+        title={page.title}
+        description={page.description}
+        path={pathname}
+        jsonLd={breadcrumbJsonLd([{ name: page.title, path: pathname }])}
+      />
       <PageHero eyebrow={page.eyebrow} title={page.title} crumbs={[{ label: page.title }]} />
       <section className="relative py-16 lg:py-24">
         <div className="mx-auto max-w-3xl px-6 lg:px-10 space-y-5">

@@ -2,10 +2,12 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Image } from "@/components/ui/image";
+import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { getDoctor } from "@/data/doctors";
 import PageNotFound from "@/lib/PageNotFound";
+import { absUrl, breadcrumbJsonLd, getSiteUrl } from "@/lib/seo";
 
 export default function DoctorDetail() {
   const { slug } = useParams();
@@ -13,12 +15,39 @@ export default function DoctorDetail() {
 
   if (!doctor) return <PageNotFound />;
 
+  const path = `/doctors/${doctor.slug}`;
+
   return (
     <main>
+      <Seo
+        title={doctor.seoTitle}
+        description={doctor.seoDescription}
+        path={path}
+        image={doctor.img}
+        imageAlt={`${doctor.name}, ${doctor.role} at Ummat International Hospital in Kabul`}
+        jsonLd={[
+          breadcrumbJsonLd([
+            { name: "Doctors", path: "/doctors" },
+            { name: doctor.name, path },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "Physician",
+            name: doctor.name,
+            url: absUrl(path),
+            image: doctor.img,
+            jobTitle: doctor.role,
+            medicalSpecialty: doctor.dept,
+            worksFor: { "@id": `${getSiteUrl()}/#hospital` },
+            knowsLanguage: doctor.languages,
+            description: doctor.bio,
+          },
+        ]}
+      />
       <PageHero
         eyebrow={doctor.dept}
         title={doctor.name}
-        description={doctor.role}
+        description={`${doctor.role} at Ummat International Hospital in Kabul`}
         crumbs={[{ label: "Doctors", to: "/doctors" }, { label: doctor.name }]}
       />
 
@@ -27,7 +56,7 @@ export default function DoctorDetail() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <Reveal className="lg:col-span-5">
               <div className="overflow-hidden rounded-[2rem] border border-border/70">
-                <Image src={doctor.img} alt={doctor.name} className="aspect-[3/4] w-full object-cover" fittingType="fill" />
+                <Image src={doctor.img} alt={`${doctor.name}, ${doctor.role} at Ummat International Hospital`} className="aspect-[3/4] w-full object-cover" fittingType="fill" />
               </div>
             </Reveal>
 
@@ -49,7 +78,7 @@ export default function DoctorDetail() {
 
               <Reveal delay={0.12} className="mt-10 rounded-3xl border border-border/70 bg-card p-6">
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Languages</p>
-                <p className="mt-2 text-foreground">{doctor.languages.join(" · ")}</p>
+                <p className="mt-2 text-foreground">{doctor.languages.join(", ")}</p>
                 <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Department</p>
                 <Link to={`/services/${doctor.deptSlug}`} className="mt-2 inline-block text-primary hover:underline">
                   {doctor.dept}

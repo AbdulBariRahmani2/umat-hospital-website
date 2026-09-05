@@ -7,7 +7,7 @@ import Reveal from "@/components/Reveal";
 
 const programs = [
   { icon: FlaskConical, label: "Clinical Research", n: "12", sub: "active programs" },
-  { icon: Microscope, label: "Medical Innovation", n: "8", sub: "ongoing studies" },
+  { icon: Microscope, label: "Practice studies", n: "8", sub: "ongoing studies" },
   { icon: BookOpen, label: "Publications", n: "30+", sub: "peer-reviewed" },
 ];
 
@@ -23,21 +23,20 @@ export default function ResearchInnovation() {
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <div>
             <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-              Research & Innovation
+              Research
             </Reveal>
             <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-balance">
-              Where medicine meets the <span className="italic text-primary">frontier</span>
+              Studies that should help the next patient
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-5 max-w-lg text-background/70 text-pretty">
-                UIH invests in clinical research, medical innovation, and professional education — building the evidence base
-                that shapes tomorrow's care, today.
+                UIH supports clinical research, careful review of how we work, and training for doctors. The point is better care here in Kabul, not a brochure.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
               <div className="mt-8">
                 <Button asChild variant="secondary" size="lg" className="rounded-full px-7 bg-background text-foreground hover:bg-background/90">
-                  <Link to="/research">Explore research <ArrowRight className="ml-1.5 h-4 w-4" /></Link>
+                  <Link to="/research">Read about research <ArrowRight className="ml-1.5 h-4 w-4" /></Link>
                 </Button>
               </div>
             </Reveal>

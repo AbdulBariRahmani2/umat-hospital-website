@@ -96,7 +96,7 @@ export default function AppointmentForm({ title = "Request an Appointment", clas
             animate={{ opacity: 1, y: 0 }}
             className="text-center text-sm font-medium text-primary"
           >
-            Thank you — our team will reach out shortly.
+            Thank you. Our team will reach out shortly.
           </motion.p>
         )}
       </form>
