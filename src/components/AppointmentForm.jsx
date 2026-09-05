@@ -28,7 +28,7 @@ export default function AppointmentForm({ title = "Request an Appointment", clas
         Submit a request and our team will contact you to confirm your appointment.
       </p>
 
-      <form onSubmit={onSubmit} className="mt-7 space-y-4">
+      <form key={searchParams.toString()} onSubmit={onSubmit} className="mt-7 space-y-4">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <Label htmlFor="name">Full name</Label>

@@ -10,10 +10,11 @@ export const hospital = {
 export const navLinks = [
   { label: "Patient Care", to: "/services" },
   { label: "Doctors", to: "/doctors" },
-  { label: "Patients & Visitors", to: "/patients" },
+  { label: "Patients", to: "/patients" },
   { label: "Research", to: "/research" },
   { label: "News", to: "/news" },
   { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export const footerColumns = [

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
-export default function PageHero({ eyebrow, title, description, crumbs = [] }) {
+export default function PageHero({ eyebrow, title, description = "", crumbs = [] }) {
   return (
     <section className="relative pt-32 lg:pt-36 pb-16 lg:pb-20 overflow-hidden bg-secondary/40">
       <div className="pointer-events-none absolute inset-0 -z-10">
