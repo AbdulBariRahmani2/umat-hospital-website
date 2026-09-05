@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FlaskConical, Microscope, BookOpen, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -36,7 +37,7 @@ export default function ResearchInnovation() {
             <Reveal delay={0.18}>
               <div className="mt-8">
                 <Button asChild variant="secondary" size="lg" className="rounded-full px-7 bg-background text-foreground hover:bg-background/90">
-                  <a href="#research">Explore research <ArrowRight className="ml-1.5 h-4 w-4" /></a>
+                  <Link to="/research">Explore research <ArrowRight className="ml-1.5 h-4 w-4" /></Link>
                 </Button>
               </div>
             </Reveal>

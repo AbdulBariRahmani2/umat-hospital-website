@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, Search, Phone, CalendarPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { navLinks } from "@/data/site";
 
-const navLinks = [
-  { label: "Patient Care", href: "#specialties" },
-  { label: "Doctors", href: "#doctors" },
-  { label: "Patients & Visitors", href: "#patient-info" },
-  { label: "Research", href: "#research" },
-  { label: "News", href: "#news" },
-  { label: "About", href: "#why" },
-];
+function linkClass(isActive) {
+  return `relative text-sm font-medium transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:bg-primary after:transition-all ${
+    isActive
+      ? "text-foreground after:w-full"
+      : "text-muted-foreground hover:text-foreground after:w-0 hover:after:w-full"
+  }`;
+}
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const solid = scrolled || !isHome;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -23,15 +26,18 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-slab border-b border-border/60 shadow-[0_1px_0_0_rgba(0,0,0,0.02)]" : "bg-transparent"
+        solid ? "glass-slab border-b border-border/60 shadow-[0_1px_0_0_rgba(0,0,0,0.02)]" : "bg-transparent"
       }`}
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
             <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm transition-transform group-hover:scale-105">
               <span className="absolute inset-0 rounded-full ring-1 ring-primary/30" />
@@ -45,30 +51,31 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((l) => (
-              <a
+              <NavLink
                 key={l.label}
-                href={l.href}
-                className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+                to={l.to}
+                className={({ isActive }) => linkClass(isActive || pathname.startsWith(`${l.to}/`))}
               >
                 {l.label}
-              </a>
+              </NavLink>
             ))}
           </nav>
 
-          {/* Actions */}
           <div className="hidden lg:flex items-center gap-3">
-            <button aria-label="Search" className="flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
+            <Link
+              to="/doctors"
+              aria-label="Find a doctor"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+            >
               <Search className="h-[18px] w-[18px]" />
-            </button>
+            </Link>
             <Button asChild size="sm" className="rounded-full px-5 shadow-sm">
-              <a href="#appointment"><CalendarPlus className="mr-1.5 h-4 w-4" /> Appointment</a>
+              <Link to="/appointment"><CalendarPlus className="mr-1.5 h-4 w-4" /> Appointment</Link>
             </Button>
           </div>
 
-          {/* Mobile toggle */}
           <button
             aria-label="Menu"
             onClick={() => setOpen((v) => !v)}
@@ -79,29 +86,27 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <div
         className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-400 ease-out ${
-          open ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0"
         } glass-slab border-t border-border/60`}
       >
         <div className="px-6 py-6 space-y-1">
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.label}
-              href={l.href}
-              onClick={() => setOpen(false)}
+              to={l.to}
               className="flex items-center justify-between py-3 text-base font-medium text-foreground border-b border-border/40"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <div className="flex gap-3 pt-4">
             <Button asChild className="flex-1 rounded-full">
-              <a href="#appointment" onClick={() => setOpen(false)}><CalendarPlus className="mr-1.5 h-4 w-4" /> Appointment</a>
+              <Link to="/appointment"><CalendarPlus className="mr-1.5 h-4 w-4" /> Appointment</Link>
             </Button>
             <Button asChild variant="outline" className="flex-1 rounded-full">
-              <a href="tel:+93"><Phone className="mr-1.5 h-4 w-4" /> Emergency</a>
+              <Link to="/contact"><Phone className="mr-1.5 h-4 w-4" /> Emergency</Link>
             </Button>
           </div>
         </div>

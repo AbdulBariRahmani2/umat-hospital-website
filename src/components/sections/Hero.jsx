@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, CalendarPlus, Siren, ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,9 +9,9 @@ import Reveal from "@/components/Reveal";
 const heroImg = "https://media.base44.com/images/public/6a9a40678987c8c77881f46a/9f3cc1f0b_generated_09d1a488.jpg";
 
 const quickActions = [
-  { icon: Search, label: "Find a Doctor", desc: "Search by specialty or name", href: "#doctors" },
-  { icon: CalendarPlus, label: "Book Appointment", desc: "Request a consultation", href: "#appointment" },
-  { icon: Siren, label: "Emergency Services", desc: "24/7 urgent care", href: "#contact", urgent: true },
+  { icon: Search, label: "Find a Doctor", desc: "Search by specialty or name", href: "/doctors" },
+  { icon: CalendarPlus, label: "Book Appointment", desc: "Request a consultation", href: "/appointment" },
+  { icon: Siren, label: "Emergency Services", desc: "24/7 urgent care", href: "/services/emergency", urgent: true },
 ];
 
 export default function Hero() {
@@ -49,10 +50,10 @@ export default function Hero() {
             <Reveal delay={0.24}>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Button asChild size="lg" className="rounded-full px-7 shadow-md">
-                  <a href="#appointment">Book Appointment <ArrowRight className="ml-1.5 h-4 w-4" /></a>
+                  <Link to="/appointment">Book Appointment <ArrowRight className="ml-1.5 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-full px-7">
-                  <a href="#specialties">Explore Specialties</a>
+                  <Link to="/services">Explore Specialties</Link>
                 </Button>
               </div>
             </Reveal>
@@ -101,13 +102,15 @@ export default function Hero() {
               {/* Floating quick actions */}
               <div className="mt-5 grid gap-3">
                 {quickActions.map((a, i) => (
-                  <motion.a
+                  <motion.div
                     key={a.label}
-                    href={a.href}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                  <Link
+                    to={a.href}
                     className={`group glass-slab flex items-center gap-4 rounded-2xl border border-border/60 p-4 shadow-lg shadow-foreground/5 transition-all hover:shadow-xl hover:-translate-y-0.5 ${
                       a.urgent ? "hover:border-destructive/40" : "hover:border-primary/40"
                     }`}
@@ -124,7 +127,8 @@ export default function Hero() {
                       <span className="block text-xs text-muted-foreground">{a.desc}</span>
                     </span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
-                  </motion.a>
+                  </Link>
+                  </motion.div>
                 ))}
               </div>
             </Reveal>
