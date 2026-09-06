@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X, Search, Phone, CalendarPlus } from "lucide-react";
+import { Menu, X, Search, CalendarPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+} from "@/components/ui/drawer";
 import { navLinks } from "@/data/site";
 
 function linkClass(isActive) {
@@ -78,40 +85,70 @@ export default function Header() {
           </div>
 
           <button
-            aria-label="Menu"
-            onClick={() => setOpen((v) => !v)}
+            aria-label="Open menu"
+            onClick={() => setOpen(true)}
             className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full text-foreground hover:bg-secondary transition-colors"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            <Menu className="h-5 w-5" />
           </button>
         </div>
       </div>
 
-      <div
-        className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-400 ease-out ${
-          open ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0"
-        } glass-slab border-t border-border/60`}
-      >
-        <div className="px-6 py-6 space-y-1">
-          {navLinks.map((l) => (
+      <Drawer open={open} onOpenChange={setOpen} direction="right">
+        <DrawerContent className="fixed inset-y-0 right-0 left-auto z-50 h-full w-[85%] max-w-sm rounded-l-[10px] rounded-tr-none border-l bg-background">
+          <DrawerHeader className="flex flex-row items-center justify-between border-b border-border/60 px-6 py-5 text-left">
             <Link
-              key={l.label}
-              to={l.to}
-              className="flex items-center justify-between py-3 text-base font-medium text-foreground border-b border-border/40"
+              to="/"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2.5"
+              aria-label="Ummat International Hospital home"
             >
-              {l.label}
+              <img
+                src="/images/uih-logo-mark.png"
+                alt="Ummat International Hospital logo"
+                width="32"
+                height="32"
+                className="h-8 w-8 rounded-full object-cover"
+              />
+              <div className="leading-none">
+                <span className="font-heading text-base font-semibold tracking-tight text-foreground block">Ummat</span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground">International Hospital</span>
+              </div>
             </Link>
-          ))}
-          <div className="flex gap-3 pt-4">
-            <Button asChild className="flex-1 rounded-full">
-              <Link to="/appointment"><CalendarPlus className="mr-1.5 h-4 w-4" /> Appointment</Link>
-            </Button>
-            <Button asChild variant="outline" className="flex-1 rounded-full">
-              <Link to="/contact"><Phone className="mr-1.5 h-4 w-4" /> Emergency</Link>
-            </Button>
-          </div>
-        </div>
-      </div>
+            <DrawerClose asChild>
+              <button
+                aria-label="Close menu"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-foreground hover:bg-secondary transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </DrawerClose>
+          </DrawerHeader>
+
+          <nav className="flex-1 overflow-y-auto px-6 py-6">
+            <DrawerTitle className="sr-only">Menu</DrawerTitle>
+            <ul className="space-y-1">
+              {navLinks.map((l) => (
+                <li key={l.label}>
+                  <NavLink
+                    to={l.to}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors ${
+                        isActive || pathname.startsWith(`${l.to}/`)
+                          ? "bg-secondary text-foreground"
+                          : "text-foreground/80 hover:bg-secondary/60 hover:text-foreground"
+                      }`
+                    }
+                  >
+                    {l.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </DrawerContent>
+      </Drawer>
     </header>
   );
 }
