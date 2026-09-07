@@ -8,7 +8,7 @@ const heroImg = "/images/hospital-entrance-kabul.png";
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 lg:pt-36 pb-20 lg:pb-28 overflow-hidden">
+    <section className="relative pt-20 lg:pt-24 pb-20 lg:pb-28 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-40 -right-32 h-[520px] w-[520px] rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute top-40 -left-40 h-[460px] w-[460px] rounded-full bg-accent/5 blur-3xl" />
