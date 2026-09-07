@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/i18n/navigation";
 import { ArrowUpRight, Clock } from "lucide-react";
 import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";

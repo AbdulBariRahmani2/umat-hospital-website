@@ -287,6 +287,12 @@
     "menu": "Menu",
     "findDoctor": "Find a doctor"
   },
+  "header": {
+    "brandName": "Ummat",
+    "brandTagline": "International Hospital",
+    "language": "Language",
+    "languageSwitcher": "Change language"
+  },
   "nav": {
     "patientCare": "Patient Care",
     "doctors": "Doctors",

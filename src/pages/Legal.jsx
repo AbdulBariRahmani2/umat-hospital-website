@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
@@ -33,17 +32,16 @@ const pages = {
 };
 
 export default function Legal() {
-  const { pathname } = useLocation();
-  const page = pages[pathname] || pages["/privacy"];
-  const { t } = useI18n();
+  const { t, path } = useI18n();
+  const page = pages[path] || pages["/privacy"];
 
   return (
     <main>
       <Seo
         title={t(page.titleKey)}
         description={t(page.descriptionKey)}
-        path={pathname}
-        jsonLd={breadcrumbJsonLd([{ name: t(page.titleKey), path: pathname }])}
+        path={path}
+        jsonLd={breadcrumbJsonLd([{ name: t(page.titleKey), path }])}
       />
       <PageHero eyebrow={t(page.eyebrowKey)} title={t(page.titleKey)} crumbs={[{ label: t(page.titleKey) }]} />
       <section className="relative py-16 lg:py-24">

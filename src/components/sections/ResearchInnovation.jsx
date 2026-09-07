@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
 import { FlaskConical, Microscope, BookOpen, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";

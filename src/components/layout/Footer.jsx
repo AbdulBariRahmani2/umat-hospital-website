@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/i18n/navigation";
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, ArrowUpRight } from "lucide-react";
 import { footerColumns, hospital, legalLinks } from "@/data/site";
 import { useI18n } from "@/hooks/use-i18n";

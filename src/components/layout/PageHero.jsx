@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { useI18n } from "@/hooks/use-i18n";
+import { Link } from "@/i18n/navigation";
 
 export default function PageHero({ eyebrow, title, description = "", crumbs = [] }) {
   const { t } = useI18n();
@@ -21,7 +21,7 @@ export default function PageHero({ eyebrow, title, description = "", crumbs = []
               </Link>
               {crumbs.map((c) => (
                 <span key={c.label} className="flex items-center gap-1.5">
-                  <ChevronRight className="h-3.5 w-3.5" />
+                  <ChevronRight className="h-3.5 w-3.5 rtl:rotate-180" />
                   {c.to ? (
                     <Link to={c.to} className="hover:text-foreground transition-colors">
                       {c.label}

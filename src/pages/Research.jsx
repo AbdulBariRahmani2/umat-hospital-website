@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight, FlaskConical, Microscope, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Seo from "@/components/Seo";

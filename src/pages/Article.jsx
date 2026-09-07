@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Link } from "@/i18n/navigation";
 import { Clock } from "lucide-react";
 import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";

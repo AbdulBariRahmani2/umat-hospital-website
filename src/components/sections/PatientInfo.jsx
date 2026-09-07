@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/i18n/navigation";
 import { ClipboardList, Clock, ShieldCheck, FileText, Wallet } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { patientGuides } from "@/data/site";

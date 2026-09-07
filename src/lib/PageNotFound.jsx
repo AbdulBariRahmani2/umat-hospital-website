@@ -1,19 +1,18 @@
-import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Seo from "@/components/Seo";
 import { useI18n } from "@/hooks/use-i18n";
+import { Link } from "@/i18n/navigation";
 
 export default function PageNotFound() {
-  const location = useLocation();
-  const pageName = location.pathname.substring(1);
-  const { t } = useI18n();
+  const { t, path } = useI18n();
+  const pageName = path === "/" ? "" : path.substring(1);
 
   return (
     <main className="min-h-[70vh] flex items-center justify-center px-6 pt-32 pb-20">
       <Seo
         title={t("pages.notFound.title")}
         description={t("pages.notFound.description")}
-        path={location.pathname}
+        path={path}
         noindex
       />
       <div className="max-w-md w-full text-center">

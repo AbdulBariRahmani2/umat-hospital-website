@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { Link } from "@/i18n/navigation";
 import { Search } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import Seo from "@/components/Seo";

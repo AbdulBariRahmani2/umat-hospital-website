@@ -18,6 +18,32 @@ import Article from '@/pages/Article';
 import Contact from '@/pages/Contact';
 import Appointment from '@/pages/Appointment';
 import Legal from '@/pages/Legal';
+import { PREFIXED_LOCALES } from '@/i18n/config';
+import DefaultLocaleRedirect from '@/i18n/DefaultLocaleRedirect';
+
+function contentRoutes() {
+  return (
+    <>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="services" element={<Services />} />
+      <Route path="services/:slug" element={<ServiceDetail />} />
+      <Route path="doctors" element={<Doctors />} />
+      <Route path="doctors/:slug" element={<DoctorDetail />} />
+      <Route path="patients" element={<Patients />} />
+      <Route path="research" element={<Research />} />
+      <Route path="news" element={<News />} />
+      <Route path="news/:slug" element={<Article />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="appointment" element={<Appointment />} />
+      <Route path="privacy" element={<Legal />} />
+      <Route path="terms" element={<Legal />} />
+      <Route path="disclaimer" element={<Legal />} />
+      <Route path="accessibility" element={<Legal />} />
+      <Route path="*" element={<PageNotFound />} />
+    </>
+  );
+}
 
 function App() {
   return (
@@ -25,24 +51,15 @@ function App() {
       <Router>
         <ScrollToTop />
         <Routes>
+          <Route path="en" element={<DefaultLocaleRedirect />} />
+          <Route path="en/*" element={<DefaultLocaleRedirect />} />
+          {PREFIXED_LOCALES.map((code) => (
+            <Route key={code} path={code} element={<Layout />}>
+              {contentRoutes()}
+            </Route>
+          ))}
           <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/:slug" element={<ServiceDetail />} />
-            <Route path="/doctors" element={<Doctors />} />
-            <Route path="/doctors/:slug" element={<DoctorDetail />} />
-            <Route path="/patients" element={<Patients />} />
-            <Route path="/research" element={<Research />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/news/:slug" element={<Article />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/appointment" element={<Appointment />} />
-            <Route path="/privacy" element={<Legal />} />
-            <Route path="/terms" element={<Legal />} />
-            <Route path="/disclaimer" element={<Legal />} />
-            <Route path="/accessibility" element={<Legal />} />
-            <Route path="*" element={<PageNotFound />} />
+            {contentRoutes()}
           </Route>
         </Routes>
         <Toaster />
