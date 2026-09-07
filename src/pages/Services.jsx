@@ -5,21 +5,23 @@ import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { specialties } from "@/data/specialties";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { useI18n } from "@/hooks/use-i18n";
 
 export default function Services() {
+  const { t } = useI18n();
   return (
     <main>
       <Seo
-        title="Hospital Services in Kabul | Neuroscience, Surgery, Cancer"
-        description="See hospital services at Ummat International Hospital in Kabul: neuroscience, surgery, cancer care, diagnostics, and 24 hour emergency."
+        title={t("pages.services.title")}
+        description={t("pages.services.description")}
         path="/services"
-        jsonLd={breadcrumbJsonLd([{ name: "Patient Care", path: "/services" }])}
+        jsonLd={breadcrumbJsonLd([{ name: t("common.servicesCrumbs"), path: "/services" }])}
       />
       <PageHero
-        eyebrow="Patient care"
-        title="Hospital services in Kabul"
-        description="Neuroscience, surgery, cancer care, and diagnostics, plus emergency care that stays open all day and night. Each service has named specialists."
-        crumbs={[{ label: "Patient Care" }]}
+        eyebrow={t("common.servicesCrumbs")}
+        title={t("pages.services.title")}
+        description={t("pages.services.description")}
+        crumbs={[{ label: t("common.servicesCrumbs") }]}
       />
 
       <section className="relative py-20 lg:py-28">
@@ -39,7 +41,7 @@ export default function Services() {
                     <h2 className="mt-5 font-heading text-2xl font-semibold text-foreground">{s.title}</h2>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground flex-1">{s.desc}</p>
                     <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                      Read about this service
+                      {t("common.readAboutThisService")}
                       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>
                   </div>

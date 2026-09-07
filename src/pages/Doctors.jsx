@@ -8,11 +8,13 @@ import Reveal from "@/components/Reveal";
 import { doctors } from "@/data/doctors";
 import { specialties } from "@/data/specialties";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { useI18n } from "@/hooks/use-i18n";
 
 export default function Doctors() {
   const [searchParams] = useSearchParams();
   const [query, setQuery] = useState(searchParams.get("q") || "");
   const [dept, setDept] = useState(searchParams.get("specialty") || "all");
+  const { t } = useI18n();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -31,16 +33,16 @@ export default function Doctors() {
   return (
     <main>
       <Seo
-        title="Find a Doctor in Kabul | Ummat International Hospital"
-        description="Search doctors at Ummat International Hospital in Kabul by name or department. Book a neurosurgeon, surgeon, oncologist, or radiologist."
+        title={t("pages.doctors.title")}
+        description={t("pages.doctors.description")}
         path="/doctors"
-        jsonLd={breadcrumbJsonLd([{ name: "Doctors", path: "/doctors" }])}
+        jsonLd={breadcrumbJsonLd([{ name: t("common.doctorsCrumbs"), path: "/doctors" }])}
       />
       <PageHero
-        eyebrow="Find a doctor"
-        title="Find a doctor in Kabul"
-        description="Search the UIH directory by name or department, then request a visit with the specialist you need."
-        crumbs={[{ label: "Doctors" }]}
+        eyebrow={t("common.findDoctorKabul")}
+        title={t("pages.doctors.title")}
+        description={t("pages.doctors.description")}
+        crumbs={[{ label: t("common.doctorsCrumbs") }]}
       />
 
       <section className="relative py-16 lg:py-24">
@@ -51,7 +53,7 @@ export default function Doctors() {
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search by name, specialty, or role"
+                placeholder={t("common.searchPlaceholder")}
                 className="h-12 w-full rounded-full border border-border bg-card pl-11 pr-4 text-sm shadow-sm outline-none focus:ring-2 focus:ring-ring"
               />
             </label>
@@ -60,7 +62,7 @@ export default function Doctors() {
               onChange={(e) => setDept(e.target.value)}
               className="h-12 rounded-full border border-border bg-card px-4 text-sm shadow-sm outline-none focus:ring-2 focus:ring-ring lg:w-64"
             >
-              <option value="all">All departments</option>
+              <option value="all">{t("common.all")}</option>
               {specialties.map((s) => (
                 <option key={s.slug} value={s.slug}>
                   {s.title}
@@ -71,7 +73,7 @@ export default function Doctors() {
 
           {filtered.length === 0 ? (
             <p className="rounded-3xl border border-border/70 bg-card p-10 text-center text-muted-foreground">
-              No physicians match that search. Try another name or department.
+              {t("common.noResults")}
             </p>
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">

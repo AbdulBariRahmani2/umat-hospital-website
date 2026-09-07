@@ -2,8 +2,46 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, ArrowUpRight } from "lucide-react";
 import { footerColumns, hospital, legalLinks } from "@/data/site";
+import { useI18n } from "@/hooks/use-i18n";
+
+const footerTitleKey = {
+  "Patient Care": "common.footerPatientCare",
+  "Patients and Visitors": "common.footerPatientsVisitors",
+  "About UIH": "common.footerAboutUIH",
+  "Resources": "common.footerResources",
+};
+
+const footerLinkKey = {
+  "Neuroscience": "common.footerNeuroscience",
+  "Surgery": "common.footerSurgery",
+  "Cancer Care": "common.footerCancerCare",
+  "Advanced Diagnostics": "common.footerDiagnostics",
+  "Emergency Care": "common.footerEmergency",
+  "Before Your Visit": "common.footerBeforeVisit",
+  "Visiting Hours": "common.footerVisitingHours",
+  "Patient Rights": "common.footerPatientRights",
+  "Medical Records": "common.footerMedicalRecords",
+  "Billing Information": "common.footerBilling",
+  "About Us": "common.footerAboutUs",
+  "Leadership": "common.footerLeadership",
+  "Facilities": "common.footerFacilities",
+  "Quality and Safety": "common.footerQuality",
+  "Careers": "common.footerCareers",
+  "News and Health Advice": "common.footerNewsAdvice",
+  "Health Articles": "common.footerHealthArticles",
+  "Find a Doctor": "common.footerFindDoctor",
+  "Contact": "common.footerContact",
+};
+
+const legalLinkKey = {
+  "Privacy Policy": "common.privacyPolicy",
+  "Terms of Use": "common.termsOfUse",
+  "Medical Disclaimer": "common.medicalDisclaimer",
+  "Accessibility": "common.accessibilityLink",
+};
 
 export default function Footer() {
+  const { t } = useI18n();
   return (
     <footer className="relative bg-foreground text-background">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10 pt-20 pb-10">
@@ -23,7 +61,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="mt-6 max-w-sm text-sm text-background/60 leading-relaxed">
-              A physician-led hospital in Kabul for neuroscience, surgery, cancer care, diagnostics, and emergency cases.
+              {t("common.footerDesc")}
             </p>
             <div className="mt-6 space-y-2.5 text-sm text-background/70">
               <p className="flex items-start gap-2.5"><MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" /> {hospital.address}</p>
@@ -32,7 +70,7 @@ export default function Footer() {
             </div>
             <div className="mt-6 flex gap-3">
               {[Facebook, Instagram, Twitter].map((Icon, i) => (
-                <a key={i} href="#" aria-label="social" className="flex h-10 w-10 items-center justify-center rounded-full border border-background/15 text-background/70 transition-colors hover:border-primary hover:text-primary">
+                <a key={i} href="#" aria-label={t("common.socialLabel")} className="flex h-10 w-10 items-center justify-center rounded-full border border-background/15 text-background/70 transition-colors hover:border-primary hover:text-primary">
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
@@ -42,12 +80,12 @@ export default function Footer() {
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {footerColumns.map((col) => (
               <div key={col.title}>
-                <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-background/50">{col.title}</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-background/50">{t(footerTitleKey[col.title] || col.title)}</h4>
                 <ul className="mt-4 space-y-2.5">
                   {col.links.map((l) => (
                     <li key={l.label}>
                       <Link to={l.to} className="group inline-flex items-center gap-1 text-sm text-background/75 hover:text-primary transition-colors">
-                        {l.label}
+                        {t(footerLinkKey[l.label] || l.label)}
                         <ArrowUpRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
                       </Link>
                     </li>
@@ -61,11 +99,11 @@ export default function Footer() {
         <div className="mt-16 pulse-line opacity-30" />
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-background/50">© 2026 Ummat International Hospital. All rights reserved.</p>
+          <p className="text-xs text-background/50">{t("common.copyright")}</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             {legalLinks.map((l) => (
               <Link key={l.label} to={l.to} className="text-xs text-background/50 hover:text-background/80 transition-colors">
-                {l.label}
+                {t(legalLinkKey[l.label] || l.label)}
               </Link>
             ))}
           </div>

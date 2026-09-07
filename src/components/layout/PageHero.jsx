@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import { useI18n } from "@/hooks/use-i18n";
 
 export default function PageHero({ eyebrow, title, description = "", crumbs = [] }) {
+  const { t } = useI18n();
   return (
     <section className="relative pt-32 lg:pt-36 pb-16 lg:pb-20 overflow-hidden bg-secondary/40">
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -15,7 +17,7 @@ export default function PageHero({ eyebrow, title, description = "", crumbs = []
           <Reveal>
             <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
               <Link to="/" className="hover:text-foreground transition-colors">
-                Home
+                {t("common.home")}
               </Link>
               {crumbs.map((c) => (
                 <span key={c.label} className="flex items-center gap-1.5">

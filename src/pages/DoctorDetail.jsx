@@ -8,10 +8,12 @@ import Reveal from "@/components/Reveal";
 import { getDoctor } from "@/data/doctors";
 import PageNotFound from "@/lib/PageNotFound";
 import { absUrl, breadcrumbJsonLd, getSiteUrl } from "@/lib/seo";
+import { useI18n } from "@/hooks/use-i18n";
 
 export default function DoctorDetail() {
   const { slug } = useParams();
   const doctor = getDoctor(slug);
+  const { t } = useI18n();
 
   if (!doctor) return <PageNotFound />;
 
@@ -27,7 +29,7 @@ export default function DoctorDetail() {
         imageAlt={`${doctor.name}, ${doctor.role} at Ummat International Hospital in Kabul`}
         jsonLd={[
           breadcrumbJsonLd([
-            { name: "Doctors", path: "/doctors" },
+            { name: t("common.doctorsCrumbs"), path: "/doctors" },
             { name: doctor.name, path },
           ]),
           {
@@ -48,7 +50,7 @@ export default function DoctorDetail() {
         eyebrow={doctor.dept}
         title={doctor.name}
         description={`${doctor.role} at Ummat International Hospital in Kabul`}
-        crumbs={[{ label: "Doctors", to: "/doctors" }, { label: doctor.name }]}
+        crumbs={[{ label: t("common.doctorsCrumbs"), to: "/doctors" }, { label: doctor.name }]}
       />
 
       <section className="relative py-20 lg:py-28">
@@ -77,9 +79,9 @@ export default function DoctorDetail() {
               </div>
 
               <Reveal delay={0.12} className="mt-10 rounded-3xl border border-border/70 bg-card p-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Languages</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t("common.languages")}</p>
                 <p className="mt-2 text-foreground">{doctor.languages.join(", ")}</p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Department</p>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t("common.department")}</p>
                 <Link to={`/services/${doctor.deptSlug}`} className="mt-2 inline-block text-primary hover:underline">
                   {doctor.dept}
                 </Link>
@@ -88,11 +90,11 @@ export default function DoctorDetail() {
               <Reveal delay={0.18} className="mt-8 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="rounded-full px-7">
                   <Link to={`/appointment?dept=${encodeURIComponent(doctor.dept)}&doctor=${encodeURIComponent(doctor.name)}`}>
-                    Book appointment <ArrowRight className="ml-1.5 h-4 w-4" />
+                    {t("common.bookAppointmentBtn")} <ArrowRight className="ml-1.5 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-full px-7">
-                  <Link to="/doctors">All doctors</Link>
+                  <Link to="/doctors">{t("common.allDoctors")}</Link>
                 </Button>
               </Reveal>
             </div>

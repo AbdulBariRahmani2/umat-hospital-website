@@ -3,35 +3,36 @@ import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import Faq from "@/components/sections/Faq";
-import { hospital } from "@/data/site";
 import { faqs } from "@/data/faqs";
 import { breadcrumbJsonLd, faqJsonLd, hospitalJsonLd } from "@/lib/seo";
+import { useI18n } from "@/hooks/use-i18n";
 
 const contactItems = [
-  { icon: MapPin, label: "Address", value: hospital.address },
-  { icon: Phone, label: "Phone", value: hospital.phone },
-  { icon: Mail, label: "Email", value: hospital.email },
-  { icon: Clock, label: "Hours", value: hospital.hours },
+  { icon: MapPin, labelKey: "common.address", valueKey: "common.hospitalAddress" },
+  { icon: Phone, labelKey: "common.phone", valueKey: "common.hospitalPhone" },
+  { icon: Mail, labelKey: "common.email", valueKey: "common.hospitalEmail" },
+  { icon: Clock, labelKey: "common.hours", valueKey: "common.hospitalHours" },
 ];
 
 export default function Contact() {
+  const { t } = useI18n();
   return (
     <main>
       <Seo
-        title="Contact Ummat International Hospital in Kabul"
-        description="Find Ummat International Hospital on Darulaman Road, next to the National Museum of Afghanistan. Hours, map, and how to reach us."
+        title={t("pages.contact.title")}
+        description={t("pages.contact.description")}
         path="/contact"
         jsonLd={[
           hospitalJsonLd(),
-          breadcrumbJsonLd([{ name: "Contact", path: "/contact" }]),
+          breadcrumbJsonLd([{ name: t("pages.contact.title"), path: "/contact" }]),
           faqJsonLd(faqs),
         ]}
       />
       <PageHero
-        eyebrow="Contact and location"
-        title="Contact Ummat International Hospital"
-        description="We are on Darulaman Road in Kabul, next to the National Museum of Afghanistan. Use the map below, or come to emergency if you need urgent care."
-        crumbs={[{ label: "Contact" }]}
+        eyebrow={t("common.contactLocation")}
+        title={t("pages.contact.title")}
+        description={t("pages.contact.description")}
+        crumbs={[{ label: t("contactCrumbs") }]}
       />
 
       <section className="relative py-20 lg:py-28">
@@ -39,14 +40,14 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <div className="space-y-3">
               {contactItems.map((c, i) => (
-                <Reveal key={c.label} delay={i * 0.06}>
+                <Reveal key={c.labelKey} delay={i * 0.06}>
                   <div className="flex items-start gap-4 rounded-2xl border border-border/70 bg-card p-4">
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                       <c.icon className="h-5 w-5" strokeWidth={1.6} />
                     </span>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{c.label}</p>
-                      <p className="mt-0.5 text-foreground">{c.value}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t(c.labelKey)}</p>
+                      <p className="mt-0.5 text-foreground">{t(c.valueKey)}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -54,7 +55,7 @@ export default function Contact() {
               <Reveal delay={0.3}>
                 <div className="mt-2 overflow-hidden rounded-2xl border border-border/70 h-72 bg-secondary/60">
                   <iframe
-                    title="Map of Ummat International Hospital on Darulaman Road in Kabul"
+                    title={t("common.mapContactTitle")}
                     src="https://www.openstreetmap.org/export/embed.html?bbox=69.1%2C34.5%2C69.2%2C34.55&layer=mapnik&marker=34.5228%2C69.1450"
                     className="h-full w-full grayscale-[0.3]"
                     loading="lazy"
@@ -65,12 +66,12 @@ export default function Contact() {
 
             <Reveal delay={0.12}>
               <div className="rounded-[2rem] border border-border/70 bg-card p-8 lg:p-10">
-                <h2 className="font-heading text-2xl font-semibold text-foreground">Emergency and general questions</h2>
+                <h2 className="font-heading text-2xl font-semibold text-foreground">{t("common.emergencyGeneral")}</h2>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
-                  If someone has life-threatening symptoms, come straight to the Emergency Department. It stays open all day and night. For clinic visits, referrals, records, or other questions, use the appointment form or the details on this page.
+                  {t("common.emergencyDesc")}
                 </p>
                 <p className="mt-4 text-sm text-muted-foreground">
-                  Phone and email will be listed here as soon as they are confirmed.
+                  {t("common.phoneEmailListed")}
                 </p>
               </div>
             </Reveal>

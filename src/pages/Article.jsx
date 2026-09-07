@@ -6,10 +6,12 @@ import Reveal from "@/components/Reveal";
 import { getArticle } from "@/data/articles";
 import PageNotFound from "@/lib/PageNotFound";
 import { absUrl, breadcrumbJsonLd, getSiteUrl } from "@/lib/seo";
+import { useI18n } from "@/hooks/use-i18n";
 
 export default function Article() {
   const { slug } = useParams();
   const article = getArticle(slug);
+  const { t } = useI18n();
 
   if (!article) return <PageNotFound />;
 
@@ -26,7 +28,7 @@ export default function Article() {
         type="article"
         jsonLd={[
           breadcrumbJsonLd([
-            { name: "News", path: "/news" },
+            { name: t("newsCrumbs"), path: "/news" },
             { name: article.title, path },
           ]),
           {
@@ -50,7 +52,7 @@ export default function Article() {
         eyebrow={article.cat}
         title={article.title}
         description={article.excerpt}
-        crumbs={[{ label: "News", to: "/news" }, { label: article.title }]}
+        crumbs={[{ label: t("newsCrumbs"), to: "/news" }, { label: article.title }]}
       />
 
       <section className="relative py-16 lg:py-24">
@@ -82,7 +84,7 @@ export default function Article() {
           </article>
           <Reveal className="mt-12">
             <Link to="/news" className="text-sm font-semibold text-primary hover:underline">
-              Back to news and health advice
+              {t("pages.article.backToNews")}
             </Link>
           </Reveal>
         </div>

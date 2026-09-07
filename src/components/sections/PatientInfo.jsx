@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ClipboardList, Clock, ShieldCheck, FileText, Wallet } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { patientGuides } from "@/data/site";
+import { useI18n } from "@/hooks/use-i18n";
 
 const icons = {
   "before-your-visit": ClipboardList,
@@ -12,16 +13,33 @@ const icons = {
   billing: Wallet,
 };
 
+const patientGuideTitleKey = {
+  "before-your-visit": "common.beforeVisit",
+  "visiting-hours": "common.visitingHours",
+  "patient-rights": "common.patientRights",
+  "medical-records": "common.medicalRecords",
+  billing: "common.billingInfo",
+};
+
+const patientGuideDescKey = {
+  "before-your-visit": "common.beforeVisitDesc",
+  "visiting-hours": "common.visitingHoursDesc",
+  "patient-rights": "common.patientRightsDesc",
+  "medical-records": "common.medicalRecordsDesc",
+  billing: "common.billingInfoDesc",
+};
+
 export default function PatientInfo() {
+  const { t } = useI18n();
   return (
     <section className="relative py-24 lg:py-32 bg-secondary/40">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="max-w-2xl mb-14">
             <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            Patients and visitors
+            {t("common.patientsAndVisitorsPage")}
           </Reveal>
           <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-            Read this before you come in
+            {t("common.readBeforeCome")}
           </Reveal>
         </div>
 
@@ -34,8 +52,8 @@ export default function PatientInfo() {
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
                     <Icon className="h-5 w-5" strokeWidth={1.6} />
                   </span>
-                  <h3 className="mt-5 font-heading text-xl font-semibold text-foreground">{g.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{g.desc}</p>
+                  <h3 className="mt-5 font-heading text-xl font-semibold text-foreground">{t(patientGuideTitleKey[g.id] || g.title)}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{t(patientGuideDescKey[g.id] || g.desc)}</p>
                 </Link>
               </Reveal>
             );

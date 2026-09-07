@@ -5,21 +5,23 @@ import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { articles } from "@/data/articles";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { useI18n } from "@/hooks/use-i18n";
 
 export default function News() {
+  const { t } = useI18n();
   return (
     <main>
       <Seo
-        title="Hospital News and Health Advice | UIH Kabul"
-        description="News from Ummat International Hospital in Kabul, plus health advice on stroke, cancer screening, and hospital imaging."
+        title={t("pages.news.title")}
+        description={t("pages.news.description")}
         path="/news"
-        jsonLd={breadcrumbJsonLd([{ name: "News", path: "/news" }])}
+        jsonLd={breadcrumbJsonLd([{ name: t("newsCrumbs"), path: "/news" }])}
       />
       <PageHero
-        eyebrow="News and health advice"
-        title="Hospital news from UIH"
-        description="Announcements, training news, and short articles written by our clinical teams in Kabul."
-        crumbs={[{ label: "News" }]}
+        eyebrow={t("common.newsAndAdvice")}
+        title={t("pages.news.title")}
+        description={t("pages.news.description")}
+        crumbs={[{ label: t("newsCrumbs") }]}
       />
 
       <section className="relative py-20 lg:py-28">
@@ -46,7 +48,7 @@ export default function News() {
                         <Clock className="h-4 w-4" /> {article.read}
                       </span>
                       <span className="inline-flex items-center gap-1.5 font-semibold text-primary">
-                        Read
+                        {t("common.read")}
                         <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </span>
                     </div>

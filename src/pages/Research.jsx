@@ -6,23 +6,25 @@ import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { researchPrograms } from "@/data/site";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { useI18n } from "@/hooks/use-i18n";
 
 const icons = [FlaskConical, Microscope, BookOpen];
 
 export default function Research() {
+  const { t } = useI18n();
   return (
     <main>
       <Seo
-        title="Clinical Research at Ummat International Hospital"
-        description="Doctor-led clinical studies at UIH in Kabul. Stroke, surgery, and cancer research with ethics review and consent."
+        title={t("pages.research.title")}
+        description={t("pages.research.description")}
         path="/research"
-        jsonLd={breadcrumbJsonLd([{ name: "Research", path: "/research" }])}
+        jsonLd={breadcrumbJsonLd([{ name: t("researchCrumbs"), path: "/research" }])}
       />
       <PageHero
-        eyebrow="Research"
-        title="Clinical research at UIH"
-        description="We support studies led by practicing doctors, plus training. Patients who are invited to a study are always asked for consent."
-        crumbs={[{ label: "Research" }]}
+        eyebrow={t("researchCrumbs")}
+        title={t("pages.research.title")}
+        description={t("pages.research.description")}
+        crumbs={[{ label: t("researchCrumbs") }]}
       />
 
       <section className="relative py-20 lg:py-28">
@@ -45,19 +47,13 @@ export default function Research() {
           </div>
 
           <Reveal className="mt-16 max-w-3xl">
-            <h2 className="font-heading text-3xl font-semibold text-foreground">How a study reaches a patient</h2>
+            <h2 className="font-heading text-3xl font-semibold text-foreground">{t("common.readAboutResearch")}</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Studies at UIH are proposed by practicing physicians, reviewed for ethics and feasibility, and designed so
-              participation never replaces standard care. Findings are shared through teaching rounds and, where
-              appropriate, peer-reviewed publication.
-            </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              If you are a clinician interested in collaboration, or a patient who has been invited to a study, our
-              research office can explain the process in plain language.
+              {t("common.clinicianInterest")}
             </p>
             <Button asChild size="lg" className="mt-8 rounded-full px-7">
               <Link to="/contact">
-                Contact the research office <ArrowRight className="ml-1.5 h-4 w-4" />
+                {t("common.contactOffice")} <ArrowRight className="ml-1.5 h-4 w-4" />
               </Link>
             </Button>
           </Reveal>

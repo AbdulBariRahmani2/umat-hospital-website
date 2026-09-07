@@ -10,6 +10,8 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { navLinks } from "@/data/site";
+import LanguageSwitcher from "@/components/language/LanguageSwitcher";
+import { useI18n } from "@/hooks/use-i18n";
 
 function linkClass(isActive) {
   return `relative text-sm font-medium transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:bg-primary after:transition-all ${
@@ -19,12 +21,23 @@ function linkClass(isActive) {
   }`;
 }
 
+const navKeyMap = {
+  "/services": "nav.patientCare",
+  "/doctors": "nav.doctors",
+  "/patients": "nav.patients",
+  "/research": "nav.research",
+  "/news": "nav.news",
+  "/about": "nav.about",
+  "/contact": "nav.contact",
+};
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   const isHome = pathname === "/";
   const solid = scrolled || !isHome;
+  const { t } = useI18n();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -66,12 +79,13 @@ export default function Header() {
                 to={l.to}
                 className={({ isActive }) => linkClass(isActive || pathname.startsWith(`${l.to}/`))}
               >
-                {l.label}
+                {t(navKeyMap[l.to] || l.label)}
               </NavLink>
             ))}
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
+            <LanguageSwitcher />
             <Link
               to="/doctors"
               aria-label="Find a doctor"
@@ -141,11 +155,14 @@ export default function Header() {
                       }`
                     }
                   >
-                    {l.label}
+                    {t(navKeyMap[l.to] || l.label)}
                   </NavLink>
                 </li>
               ))}
             </ul>
+            <div className="mt-6">
+              <LanguageSwitcher />
+            </div>
           </nav>
         </DrawerContent>
       </Drawer>

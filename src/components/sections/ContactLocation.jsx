@@ -6,16 +6,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import Reveal from "@/components/Reveal";
+import { useI18n } from "@/hooks/use-i18n";
 
 const contactItems = [
-  { icon: MapPin, label: "Address", value: "Darulaman Road, Next to National Museum of Afghanistan, Kabul, Afghanistan" },
-  { icon: Phone, label: "Phone", value: "To be provided" },
-  { icon: Mail, label: "Email", value: "To be provided" },
-  { icon: Clock, label: "Hours", value: "Mon–Sat: 8:00 AM – 7:00 PM · Emergency 24/7" },
+  { icon: MapPin, labelKey: "common.address", valueKey: "common.hospitalAddress" },
+  { icon: Phone, labelKey: "common.phone", valueKey: "common.hospitalPhone" },
+  { icon: Mail, labelKey: "common.email", valueKey: "common.hospitalEmail" },
+  { icon: Clock, labelKey: "common.hours", valueKey: "common.hospitalHours" },
 ];
 
 export default function ContactLocation() {
   const [sent, setSent] = useState(false);
+  const { t } = useI18n();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -31,27 +33,27 @@ export default function ContactLocation() {
           {/* Left — info + map */}
           <div>
             <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-              Contact & Location
+              {t("common.contactLocation")}
             </Reveal>
             <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-              Find us, <span className="italic text-primary">reach</span> us
+              {t("common.findUsReachUs")}
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-5 text-muted-foreground max-w-md text-pretty">
-                Located on Darulaman Road in Kabul, UIH is accessible to patients, families, and international visitors.
+                {t("common.comeSeeUs")}
               </p>
             </Reveal>
 
             <div className="mt-8 space-y-3">
               {contactItems.map((c, i) => (
-                <Reveal key={c.label} delay={0.1 + i * 0.06}>
+                <Reveal key={c.labelKey} delay={0.1 + i * 0.06}>
                   <div className="flex items-start gap-4 rounded-2xl border border-border/70 bg-card p-4">
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                       <c.icon className="h-5 w-5" strokeWidth={1.6} />
                     </span>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{c.label}</p>
-                      <p className="mt-0.5 text-foreground">{c.value}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t(c.labelKey)}</p>
+                      <p className="mt-0.5 text-foreground">{t(c.valueKey)}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -73,49 +75,49 @@ export default function ContactLocation() {
           {/* Right — contact form */}
           <Reveal delay={0.15}>
             <div id="appointment" className="relative scroll-mt-24 rounded-[2rem] border border-border/70 bg-card p-8 lg:p-10 shadow-xl shadow-foreground/5">
-              <h3 className="font-heading text-2xl lg:text-3xl font-semibold text-foreground">Request an Appointment</h3>
+              <h3 className="font-heading text-2xl lg:text-3xl font-semibold text-foreground">{t("pages.appointment.title")}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Submit a request and our team will contact you to confirm your appointment.
+                {t("common.submitConfirm")}
               </p>
 
               <form onSubmit={onSubmit} className="mt-7 space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label htmlFor="name">Full name</Label>
-                    <Input id="name" name="name" placeholder="Your name" required />
+                    <Label htmlFor="name">{t("forms.fullName")}</Label>
+                    <Input id="name" name="name" placeholder={t("forms.namePlaceholder")} required />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input id="phone" name="phone" placeholder="+93 ..." required />
+                    <Label htmlFor="phone">{t("forms.phone")}</Label>
+                    <Input id="phone" name="phone" placeholder={t("forms.phonePlaceholder")} required />
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" name="email" placeholder="you@email.com" required />
+                  <Label htmlFor="email">{t("forms.email")}</Label>
+                  <Input id="email" type="email" name="email" placeholder={t("forms.emailPlaceholder")} required />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label htmlFor="dept">Department</Label>
-                    <Input id="dept" name="dept" placeholder="e.g. Neuroscience" />
+                    <Label htmlFor="dept">{t("forms.department")}</Label>
+                    <Input id="dept" name="dept" placeholder={t("common.selectADepartment")} />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="date">Preferred date</Label>
+                    <Label htmlFor="date">{t("forms.preferredDate")}</Label>
                     <Input id="date" type="date" name="date" />
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="message">Reason for visit</Label>
-                  <Textarea id="message" name="message" placeholder="Briefly describe your concern" rows={3} />
+                  <Label htmlFor="message">{t("forms.reasonForVisit")}</Label>
+                  <Textarea id="message" name="message" placeholder={t("forms.reasonPlaceholder")} rows={3} />
                 </div>
                 <label className="flex items-start gap-3 text-sm text-muted-foreground">
                   <input type="checkbox" required className="mt-1 h-4 w-4 rounded border-border text-primary focus:ring-primary" />
-                  <span>I consent to UIH contacting me about my appointment request.</span>
+                  <span>{t("forms.consent")}</span>
                 </label>
                 <Button type="submit" size="lg" className="w-full rounded-full shadow-md">
                   {sent ? (
-                    <><CheckCircle2 className="mr-2 h-5 w-5" /> Request received</>
+                    <><CheckCircle2 className="mr-2 h-5 w-5" /> {t("buttons.requestReceived")}</>
                   ) : (
-                    <>Submit request <Send className="ml-2 h-4 w-4" /></>
+                    <>{t("buttons.submit")} <Send className="ml-2 h-4 w-4" /></>
                   )}
                 </Button>
                 {sent && (
@@ -124,7 +126,7 @@ export default function ContactLocation() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center text-sm font-medium text-primary"
                   >
-                    Thank you — our team will reach out shortly.
+                    {t("buttons.thankYou")}
                   </motion.p>
                 )}
               </form>

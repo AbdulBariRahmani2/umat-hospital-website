@@ -4,23 +4,25 @@ import { ArrowUpRight } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import Reveal from "@/components/Reveal";
 import { doctors } from "@/data/doctors";
+import { useI18n } from "@/hooks/use-i18n";
 
 export default function FeaturedDoctors() {
+  const { t } = useI18n();
   return (
     <section className="relative py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
           <div className="max-w-2xl">
             <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-              Doctors at UIH
+              {t("common.doctorsAtUIH")}
             </Reveal>
             <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-              Specialists you can book by name
+              {t("common.specialistsBookByName")}
             </Reveal>
           </div>
           <Reveal delay={0.12}>
             <Link to="/doctors" className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
-              View all doctors
+              {t("common.viewAllDoctors")}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </Reveal>

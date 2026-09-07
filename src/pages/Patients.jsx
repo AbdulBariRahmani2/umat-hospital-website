@@ -6,6 +6,7 @@ import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { patientGuides } from "@/data/site";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { useI18n } from "@/hooks/use-i18n";
 
 const icons = {
   "before-your-visit": ClipboardList,
@@ -15,20 +16,37 @@ const icons = {
   billing: Wallet,
 };
 
+const patientGuideTitleKey = {
+  "before-your-visit": "common.beforeVisit",
+  "visiting-hours": "common.visitingHours",
+  "patient-rights": "common.patientRights",
+  "medical-records": "common.medicalRecords",
+  billing: "common.billingInfo",
+};
+
+const patientGuideDescKey = {
+  "before-your-visit": "common.beforeVisitDesc",
+  "visiting-hours": "common.visitingHoursDesc",
+  "patient-rights": "common.patientRightsDesc",
+  "medical-records": "common.medicalRecordsDesc",
+  billing: "common.billingInfoDesc",
+};
+
 export default function Patients() {
+  const { t } = useI18n();
   return (
     <main>
       <Seo
-        title="Patients and Visitors | Visiting Hours at UIH Kabul"
-        description="Visiting hours, what to bring, patient rights, medical records, and bills at Ummat International Hospital on Darulaman Road in Kabul."
+        title={t("pages.patients.title")}
+        description={t("pages.patients.description")}
         path="/patients"
-        jsonLd={breadcrumbJsonLd([{ name: "Patients", path: "/patients" }])}
+        jsonLd={breadcrumbJsonLd([{ name: t("common.patientsCrumbs"), path: "/patients" }])}
       />
       <PageHero
-        eyebrow="Patients and visitors"
-        title="If you are coming to the hospital"
-        description="Registration, visiting hours, records, bills, and your rights as a patient at Ummat International Hospital in Kabul."
-        crumbs={[{ label: "Patients and Visitors" }]}
+        eyebrow={t("common.patientsAndVisitorsPage")}
+        title={t("pages.patients.title")}
+        description={t("pages.patients.description")}
+        crumbs={[{ label: t("common.patientsCrumbs") }]}
       />
 
       <section className="relative py-20 lg:py-28">
@@ -46,8 +64,8 @@ export default function Patients() {
                       <Icon className="h-5 w-5" strokeWidth={1.6} />
                     </span>
                     <div>
-                      <h2 className="font-heading text-2xl lg:text-3xl font-semibold text-foreground">{guide.title}</h2>
-                      <p className="mt-1 text-sm text-muted-foreground">{guide.desc}</p>
+                      <h2 className="font-heading text-2xl lg:text-3xl font-semibold text-foreground">{t(patientGuideTitleKey[guide.id] || guide.title)}</h2>
+                      <p className="mt-1 text-sm text-muted-foreground">{t(patientGuideDescKey[guide.id] || guide.desc)}</p>
                     </div>
                   </div>
                   <ul className="mt-6 space-y-3">
@@ -65,12 +83,12 @@ export default function Patients() {
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 rounded-[2rem] bg-foreground p-8 text-background">
               <div>
-                <h2 className="font-heading text-2xl font-semibold">Ready to schedule a visit?</h2>
-                <p className="mt-2 text-sm text-background/70">Request an appointment and our team will confirm a time with you.</p>
+                <h2 className="font-heading text-2xl font-semibold">{t("common.readyToSchedule")}</h2>
+                <p className="mt-2 text-sm text-background/70">{t("common.scheduleDesc")}</p>
               </div>
               <Button asChild size="lg" className="rounded-full px-7">
                 <Link to="/appointment">
-                  Book appointment <ArrowRight className="ml-1.5 h-4 w-4" />
+                  {t("common.bookAppointmentBtn")} <ArrowRight className="ml-1.5 h-4 w-4" />
                 </Link>
               </Button>
             </div>

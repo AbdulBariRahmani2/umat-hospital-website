@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
+import { useI18n } from "@/hooks/use-i18n";
 
 const heroImg = "/images/hospital-entrance-kabul.png";
 
 export default function Hero() {
+  const { t } = useI18n();
   return (
     <section className="relative pt-20 lg:pt-24 pb-20 lg:pb-28 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -20,28 +22,28 @@ export default function Hero() {
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                Hospital in Kabul
+                {t("hero.eyebrow")}
               </span>
             </Reveal>
 
             <Reveal delay={0.08} as="h1" className="mt-6 font-heading text-[2.75rem] sm:text-5xl lg:text-[4.25rem] leading-[1.05] font-semibold tracking-tight text-foreground text-balance">
-              Ummat International
-              <br className="hidden sm:block" /> Hospital in Kabul
+              {t("common.siteName")}
+              <br className="hidden sm:block" /> {t("hero.title")}
             </Reveal>
 
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground text-pretty">
-                A physician-led hospital on Darulaman Road for neuroscience, surgery, cancer care, hospital tests, and emergency cases. Doctors make the clinical calls. You and your family get a plan you can follow.
+                {t("hero.description")}
               </p>
             </Reveal>
 
             <Reveal delay={0.24}>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Button asChild size="lg" className="rounded-full px-7 shadow-md">
-                  <Link to="/appointment">Book a visit <ArrowRight className="ml-1.5 h-4 w-4" /></Link>
+                  <Link to="/appointment">{t("hero.ctaPrimary")} <ArrowRight className="ml-1.5 h-4 w-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-full px-7">
-                  <Link to="/services">See our services</Link>
+                  <Link to="/services">{t("hero.ctaSecondary")}</Link>
                 </Button>
               </div>
             </Reveal>
@@ -63,7 +65,7 @@ export default function Hero() {
                     ))}
                   </div>
                   <p className="mt-1 text-muted-foreground">
-                    <span className="font-semibold text-foreground">Seen</span> by more than 10,000 patients
+                    <span className="font-semibold text-foreground">{t("common.patientsOver10k")}</span> {t("common.starRating")}
                   </p>
                 </div>
               </div>
@@ -75,7 +77,7 @@ export default function Hero() {
               <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-foreground/10 ring-1 ring-border/60">
                 <img
                   src={heroImg}
-                  alt="Entrance to Ummat International Hospital on Darulaman Road in Kabul"
+                  alt={t("common.hospitalEntrance")}
                   width="720"
                   height="900"
                   className="aspect-[4/5] w-full object-cover"
@@ -83,8 +85,8 @@ export default function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <p className="font-heading text-2xl font-semibold text-white">Darulaman Road, Kabul</p>
-                  <p className="text-sm text-white/80">Next to National Museum of Afghanistan</p>
+                  <p className="font-heading text-2xl font-semibold text-white">{t("common.darulamanRoad")}</p>
+                  <p className="text-sm text-white/80">{t("common.nationalMuseum")}</p>
                 </div>
               </div>
             </Reveal>

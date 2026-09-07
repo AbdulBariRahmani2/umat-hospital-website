@@ -3,66 +3,54 @@ import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { useI18n } from "@/hooks/use-i18n";
 
 const pages = {
   "/privacy": {
-    title: "Privacy Policy",
-    description: "How Ummat International Hospital in Kabul handles personal and clinical information collected through this website and at the hospital.",
+    titleKey: "pages.legal.privacy.title",
+    descriptionKey: "pages.legal.privacy.description",
     eyebrow: "Legal",
-    paragraphs: [
-      "Ummat International Hospital collects only what we need to provide care, answer appointment requests, and run this website.",
-      "Clinical records stay under professional confidentiality. Details you send through the website are used to contact you about that request. We do not sell them.",
-      "If you have a question about how your information is stored or shared, use the contact page.",
-    ],
+    paragraphsKey: ["legal.privacy.p1", "legal.privacy.p2", "legal.privacy.p3"],
   },
   "/terms": {
-    title: "Terms of Use",
-    description: "Terms for using the Ummat International Hospital website. This site does not create a doctor-patient relationship.",
+    titleKey: "pages.legal.terms.title",
+    descriptionKey: "pages.legal.terms.description",
     eyebrow: "Legal",
-    paragraphs: [
-      "This website helps patients and visitors learn about Ummat International Hospital and request care. The text is general information and may change as services change.",
-      "Using this site does not create a doctor-patient relationship. An appointment request is not booked until the hospital confirms it with you.",
-      "Do not use the website for emergencies. Go to the Emergency Department or get local help at once.",
-    ],
+    paragraphsKey: ["legal.terms.p1", "legal.terms.p2", "legal.terms.p3"],
   },
   "/disclaimer": {
-    title: "Medical Disclaimer",
-    description: "Health articles on the UIH website are for information only and are not a diagnosis or a substitute for seeing a doctor.",
+    titleKey: "pages.legal.disclaimer.title",
+    descriptionKey: "pages.legal.disclaimer.description",
     eyebrow: "Legal",
-    paragraphs: [
-      "Articles and service pages on this website are for education. They are not a diagnosis, a prescription, or a substitute for seeing a qualified doctor.",
-      "If you are worried about symptoms, book a visit or go to emergency. Do not delay care because of something you read online.",
-    ],
+    paragraphsKey: ["legal.disclaimer.p1", "legal.disclaimer.p2"],
   },
   "/accessibility": {
-    title: "Accessibility",
-    description: "How Ummat International Hospital tries to keep this website usable, and how to ask for information in another format.",
+    titleKey: "pages.legal.accessibility.title",
+    descriptionKey: "pages.legal.accessibility.description",
     eyebrow: "Legal",
-    paragraphs: [
-      "We try to keep this website usable for people with a range of abilities. Pages use clear headings, keyboard navigation, and readable contrast.",
-      "If a page is hard to use or you need the same information in another format, contact us and we will do what we can.",
-    ],
+    paragraphsKey: ["legal.accessibility.p1", "legal.accessibility.p2"],
   },
 };
 
 export default function Legal() {
   const { pathname } = useLocation();
   const page = pages[pathname] || pages["/privacy"];
+  const { t } = useI18n();
 
   return (
     <main>
       <Seo
-        title={page.title}
-        description={page.description}
+        title={t(page.titleKey)}
+        description={t(page.descriptionKey)}
         path={pathname}
-        jsonLd={breadcrumbJsonLd([{ name: page.title, path: pathname }])}
+        jsonLd={breadcrumbJsonLd([{ name: t(page.titleKey), path: pathname }])}
       />
-      <PageHero eyebrow={page.eyebrow} title={page.title} crumbs={[{ label: page.title }]} />
+      <PageHero eyebrow={page.eyebrow} title={t(page.titleKey)} crumbs={[{ label: t(page.titleKey) }]} />
       <section className="relative py-16 lg:py-24">
         <div className="mx-auto max-w-3xl px-6 lg:px-10 space-y-5">
-          {page.paragraphs.map((p) => (
-            <Reveal key={p}>
-              <p className="text-lg leading-relaxed text-muted-foreground">{p}</p>
+          {page.paragraphsKey.map((key) => (
+            <Reveal key={key}>
+              <p className="text-lg leading-relaxed text-muted-foreground">{t(key)}</p>
             </Reveal>
           ))}
         </div>

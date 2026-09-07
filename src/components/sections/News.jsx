@@ -3,18 +3,20 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { newsItems } from "@/data/articles";
+import { useI18n } from "@/hooks/use-i18n";
 
 export default function News() {
+  const { t } = useI18n();
   return (
     <section className="relative py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
           <div className="max-w-2xl">
             <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-              Hospital news
+              {t("common.hospitalNews")}
             </Reveal>
             <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-              What is new at UIH
+              {t("common.whatIsNew")}
             </Reveal>
           </div>
         </div>
@@ -33,7 +35,7 @@ export default function News() {
                     {n.title}
                   </h3>
                   <span className="mt-auto pt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                    Read story
+                    {t("common.readStory")}
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
                 </div>
