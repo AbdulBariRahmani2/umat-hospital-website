@@ -3,24 +3,26 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Clock } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { insights } from "@/data/articles";
+import { useI18n } from "@/hooks/use-i18n";
 
 export default function HealthInsights() {
   const [feat, ...rest] = insights;
+  const { t } = useI18n();
   return (
     <section className="relative py-24 lg:py-32 bg-secondary/40">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
           <div className="max-w-2xl">
             <Reveal as="p" className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-              Health advice
+              {t("common.healthAdvice")}
             </Reveal>
             <Reveal as="h2" delay={0.06} className="mt-3 font-heading text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
-              Plain words from our doctors
+              {t("common.plainWords")}
             </Reveal>
           </div>
           <Reveal delay={0.12}>
             <Link to="/news" className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
-              All articles
+              {t("common.allArticles")}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </Reveal>

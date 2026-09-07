@@ -49,7 +49,7 @@ export default function ServiceDetail() {
       />
       <PageHero
         eyebrow={t("common.servicesCrumbs")}
-        title={`${service.title} in Kabul`}
+        title={t("common.serviceInKabul", { title: service.title })}
         description={service.desc}
         crumbs={[{ label: t("common.servicesCrumbs"), to: "/services" }, { label: service.title }]}
       />

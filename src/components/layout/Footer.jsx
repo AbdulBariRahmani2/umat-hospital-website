@@ -79,13 +79,13 @@ export default function Footer() {
 
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {footerColumns.map((col) => (
-              <div key={col.title}>
-                <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-background/50">{t(footerTitleKey[col.title] || col.title)}</h4>
+              <div key={col.i18nKey || col.title}>
+                <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-background/50">{t(col.i18nKey || col.title)}</h4>
                 <ul className="mt-4 space-y-2.5">
                   {col.links.map((l) => (
                     <li key={l.label}>
                       <Link to={l.to} className="group inline-flex items-center gap-1 text-sm text-background/75 hover:text-primary transition-colors">
-                        {t(footerLinkKey[l.label] || l.label)}
+                        {t(l.i18nKey || l.label)}
                         <ArrowUpRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
                       </Link>
                     </li>
@@ -103,7 +103,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             {legalLinks.map((l) => (
               <Link key={l.label} to={l.to} className="text-xs text-background/50 hover:text-background/80 transition-colors">
-                {t(legalLinkKey[l.label] || l.label)}
+                {t(l.i18nKey || l.label)}
               </Link>
             ))}
           </div>

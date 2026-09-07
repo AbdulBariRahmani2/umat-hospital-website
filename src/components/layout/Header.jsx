@@ -21,16 +21,6 @@ function linkClass(isActive) {
   }`;
 }
 
-const navKeyMap = {
-  "/services": "nav.patientCare",
-  "/doctors": "nav.doctors",
-  "/patients": "nav.patients",
-  "/research": "nav.research",
-  "/news": "nav.news",
-  "/about": "nav.about",
-  "/contact": "nav.contact",
-};
-
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -58,10 +48,10 @@ export default function Header() {
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex h-20 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2.5 group" aria-label="Ummat International Hospital home">
+          <Link to="/" className="flex items-center gap-2.5 group" aria-label={t("common.uihHomeAlt")}>
             <img
               src="/images/uih-logo-mark.png"
-              alt="Ummat International Hospital logo"
+              alt={t("common.uihLogoAlt")}
               width="36"
               height="36"
               className="h-9 w-9 rounded-full object-cover shadow-sm transition-transform group-hover:scale-105"
@@ -79,7 +69,7 @@ export default function Header() {
                 to={l.to}
                 className={({ isActive }) => linkClass(isActive || pathname.startsWith(`${l.to}/`))}
               >
-                {t(navKeyMap[l.to] || l.label)}
+                {t(l.i18nKey || l.label)}
               </NavLink>
             ))}
           </nav>
@@ -88,18 +78,18 @@ export default function Header() {
             <LanguageSwitcher />
             <Link
               to="/doctors"
-              aria-label="Find a doctor"
+              aria-label={t("common.findDoctor")}
               className="flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
             >
               <Search className="h-[18px] w-[18px]" />
             </Link>
             <Button asChild size="sm" className="rounded-full px-5 shadow-sm">
-              <Link to="/appointment"><CalendarPlus className="mr-1.5 h-4 w-4" /> Appointment</Link>
+              <Link to="/appointment"><CalendarPlus className="mr-1.5 h-4 w-4" /> {t("common.appointmentBtn")}</Link>
             </Button>
           </div>
 
           <button
-            aria-label="Open menu"
+            aria-label={t("common.openMenu")}
             onClick={() => setOpen(true)}
             className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full text-foreground hover:bg-secondary transition-colors"
           >
@@ -115,11 +105,11 @@ export default function Header() {
               to="/"
               onClick={() => setOpen(false)}
               className="flex items-center gap-2.5"
-              aria-label="Ummat International Hospital home"
+              aria-label={t("common.uihHomeAlt")}
             >
               <img
                 src="/images/uih-logo-mark.png"
-                alt="Ummat International Hospital logo"
+                alt={t("common.uihLogoAlt")}
                 width="32"
                 height="32"
                 className="h-8 w-8 rounded-full object-cover"
@@ -131,7 +121,7 @@ export default function Header() {
             </Link>
             <DrawerClose asChild>
               <button
-                aria-label="Close menu"
+                aria-label={t("common.closeMenu")}
                 className="flex h-9 w-9 items-center justify-center rounded-full text-foreground hover:bg-secondary transition-colors"
               >
                 <X className="h-5 w-5" />
@@ -140,7 +130,7 @@ export default function Header() {
           </DrawerHeader>
 
           <nav className="flex-1 overflow-y-auto px-6 py-6">
-            <DrawerTitle className="sr-only">Menu</DrawerTitle>
+            <DrawerTitle className="sr-only">{t("common.menu")}</DrawerTitle>
             <ul className="space-y-1">
               {navLinks.map((l) => (
                 <li key={l.label}>
@@ -155,7 +145,7 @@ export default function Header() {
                       }`
                     }
                   >
-                    {t(navKeyMap[l.to] || l.label)}
+                    {t(l.i18nKey || l.label)}
                   </NavLink>
                 </li>
               ))}

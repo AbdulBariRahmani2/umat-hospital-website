@@ -9,25 +9,25 @@ const pages = {
   "/privacy": {
     titleKey: "pages.legal.privacy.title",
     descriptionKey: "pages.legal.privacy.description",
-    eyebrow: "Legal",
+    eyebrowKey: "legal.eyebrow",
     paragraphsKey: ["legal.privacy.p1", "legal.privacy.p2", "legal.privacy.p3"],
   },
   "/terms": {
     titleKey: "pages.legal.terms.title",
     descriptionKey: "pages.legal.terms.description",
-    eyebrow: "Legal",
+    eyebrowKey: "legal.eyebrow",
     paragraphsKey: ["legal.terms.p1", "legal.terms.p2", "legal.terms.p3"],
   },
   "/disclaimer": {
     titleKey: "pages.legal.disclaimer.title",
     descriptionKey: "pages.legal.disclaimer.description",
-    eyebrow: "Legal",
+    eyebrowKey: "legal.eyebrow",
     paragraphsKey: ["legal.disclaimer.p1", "legal.disclaimer.p2"],
   },
   "/accessibility": {
     titleKey: "pages.legal.accessibility.title",
     descriptionKey: "pages.legal.accessibility.description",
-    eyebrow: "Legal",
+    eyebrowKey: "legal.eyebrow",
     paragraphsKey: ["legal.accessibility.p1", "legal.accessibility.p2"],
   },
 };
@@ -45,7 +45,7 @@ export default function Legal() {
         path={pathname}
         jsonLd={breadcrumbJsonLd([{ name: t(page.titleKey), path: pathname }])}
       />
-      <PageHero eyebrow={page.eyebrow} title={t(page.titleKey)} crumbs={[{ label: t(page.titleKey) }]} />
+      <PageHero eyebrow={t(page.eyebrowKey)} title={t(page.titleKey)} crumbs={[{ label: t(page.titleKey) }]} />
       <section className="relative py-16 lg:py-24">
         <div className="mx-auto max-w-3xl px-6 lg:px-10 space-y-5">
           {page.paragraphsKey.map((key) => (

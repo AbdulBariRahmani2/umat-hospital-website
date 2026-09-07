@@ -26,7 +26,7 @@ export default function DoctorDetail() {
         description={doctor.seoDescription}
         path={path}
         image={doctor.img}
-        imageAlt={`${doctor.name}, ${doctor.role} at Ummat International Hospital in Kabul`}
+        imageAlt={`${doctor.name}, ${doctor.role} at ${t("common.siteName")} in Kabul`}
         jsonLd={[
           breadcrumbJsonLd([
             { name: t("common.doctorsCrumbs"), path: "/doctors" },
@@ -49,7 +49,7 @@ export default function DoctorDetail() {
       <PageHero
         eyebrow={doctor.dept}
         title={doctor.name}
-        description={`${doctor.role} at Ummat International Hospital in Kabul`}
+        description={`${doctor.role} at ${t("common.siteName")} in Kabul`}
         crumbs={[{ label: t("common.doctorsCrumbs"), to: "/doctors" }, { label: doctor.name }]}
       />
 
@@ -58,7 +58,7 @@ export default function DoctorDetail() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <Reveal className="lg:col-span-5">
               <div className="overflow-hidden rounded-[2rem] border border-border/70">
-                <Image src={doctor.img} alt={`${doctor.name}, ${doctor.role} at Ummat International Hospital`} className="aspect-[3/4] w-full object-cover" fittingType="fill" />
+                <Image src={doctor.img} alt={`${doctor.name}, ${doctor.role} at ${t("common.siteName")}`} className="aspect-[3/4] w-full object-cover" fittingType="fill" />
               </div>
             </Reveal>
 
