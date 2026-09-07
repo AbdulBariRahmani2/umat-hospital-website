@@ -71,7 +71,7 @@ export default function Seo({
   image = DEFAULT_IMAGE,
   imageAlt = DEFAULT_IMAGE_ALT,
   type = "website",
-  jsonLd,
+  jsonLd = null,
   noindex = false,
 }) {
   const { locale, ogLocale } = useLocale();

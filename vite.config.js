@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import react from '@vitejs/plugin-react';
 import { defineConfig, loadEnv } from 'vite';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_CODES } from './src/i18n/config.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -37,19 +38,35 @@ const SITE_PATHS = [
   '/accessibility',
 ];
 
+function localizedRoute(route, locale) {
+  if (locale === DEFAULT_LOCALE) return route;
+  return route === '/' ? `/${locale}` : `/${locale}${route}`;
+}
+
 function sitemapPlugin(origin) {
   return {
     name: 'write-sitemap',
     closeBundle() {
       const base = String(origin || '').replace(/\/$/, '');
       const loc = (route) => (base ? `${base}${route}` : route);
-      const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${SITE_PATHS.map((route) => `  <url>
-    <loc>${loc(route)}</loc>
+      const urls = SITE_PATHS.flatMap((route) =>
+        LOCALE_CODES.map((locale) => {
+          const pagePath = localizedRoute(route, locale);
+          const alternates = [
+            ...LOCALE_CODES.map((code) => `    <xhtml:link rel="alternate" hreflang="${LOCALES[code].hreflang}" href="${loc(localizedRoute(route, code))}" />`),
+            `    <xhtml:link rel="alternate" hreflang="x-default" href="${loc(localizedRoute(route, DEFAULT_LOCALE))}" />`,
+          ].join('\n');
+          return `  <url>
+    <loc>${loc(pagePath)}</loc>
+${alternates}
     <changefreq>${route === '/' ? 'daily' : 'weekly'}</changefreq>
     <priority>${route === '/' ? '1.0' : route.split('/').length <= 2 ? '0.8' : '0.6'}</priority>
-  </url>`).join('\n')}
+  </url>`;
+        })
+      ).join('\n');
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls}
 </urlset>
 `;
       fs.writeFileSync(path.resolve(__dirname, 'public/sitemap.xml'), xml);

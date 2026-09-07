@@ -63,6 +63,14 @@
     scroll-padding-top: 5rem;
   }
 
+  html[dir="rtl"] header {
+    font-family: "Noto Naskh Arabic", "Noto Sans Arabic", var(--font-body);
+  }
+
+  html[dir="rtl"] header .font-heading {
+    font-family: "Noto Naskh Arabic", "Noto Sans Arabic", var(--font-heading);
+  }
+
   body {
     @apply bg-background text-foreground font-body antialiased;
     font-feature-settings: "ss01", "cv01";

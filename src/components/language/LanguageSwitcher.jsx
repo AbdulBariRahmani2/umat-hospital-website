@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import { useI18n } from "@/hooks/use-i18n";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,12 +10,10 @@ import {
 import { Globe } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { LOCALES, LOCALE_CODES } from "@/i18n/config";
-import { stripLocalePrefix } from "@/i18n/path";
 
 export default function LanguageSwitcher() {
-  const { t, locale } = useI18n();
-  const location = useLocation();
-  const currentPath = `${stripLocalePrefix(location.pathname)}${location.search}${location.hash}`;
+  const { t, locale, path, search, hash } = useI18n();
+  const currentPath = `${path}${search}${hash}`;
   const current = LOCALES[locale] || LOCALES.en;
 
   return (
@@ -47,7 +44,9 @@ export default function LanguageSwitcher() {
                 className={isActive ? "font-semibold" : "font-normal"}
               >
                 <span>{item.nativeLabel}</span>
-                <span className="ms-2 text-muted-foreground">{item.englishLabel}</span>
+                {item.englishLabel !== item.nativeLabel ? (
+                  <span className="ms-2 text-muted-foreground">{item.englishLabel}</span>
+                ) : null}
               </Link>
             </DropdownMenuItem>
           );

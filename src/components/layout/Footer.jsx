@@ -4,42 +4,6 @@ import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, ArrowUpRight } from 
 import { footerColumns, hospital, legalLinks } from "@/data/site";
 import { useI18n } from "@/hooks/use-i18n";
 
-const footerTitleKey = {
-  "Patient Care": "common.footerPatientCare",
-  "Patients and Visitors": "common.footerPatientsVisitors",
-  "About UIH": "common.footerAboutUIH",
-  "Resources": "common.footerResources",
-};
-
-const footerLinkKey = {
-  "Neuroscience": "common.footerNeuroscience",
-  "Surgery": "common.footerSurgery",
-  "Cancer Care": "common.footerCancerCare",
-  "Advanced Diagnostics": "common.footerDiagnostics",
-  "Emergency Care": "common.footerEmergency",
-  "Before Your Visit": "common.footerBeforeVisit",
-  "Visiting Hours": "common.footerVisitingHours",
-  "Patient Rights": "common.footerPatientRights",
-  "Medical Records": "common.footerMedicalRecords",
-  "Billing Information": "common.footerBilling",
-  "About Us": "common.footerAboutUs",
-  "Leadership": "common.footerLeadership",
-  "Facilities": "common.footerFacilities",
-  "Quality and Safety": "common.footerQuality",
-  "Careers": "common.footerCareers",
-  "News and Health Advice": "common.footerNewsAdvice",
-  "Health Articles": "common.footerHealthArticles",
-  "Find a Doctor": "common.footerFindDoctor",
-  "Contact": "common.footerContact",
-};
-
-const legalLinkKey = {
-  "Privacy Policy": "common.privacyPolicy",
-  "Terms of Use": "common.termsOfUse",
-  "Medical Disclaimer": "common.medicalDisclaimer",
-  "Accessibility": "common.accessibilityLink",
-};
-
 export default function Footer() {
   const { t } = useI18n();
   return (

@@ -1,3 +1,6 @@
+import { DEFAULT_LOCALE, LOCALES } from "@/i18n/config";
+import { getLocaleFromPathname, localizePath } from "@/i18n/path";
+
 export const DEFAULT_TITLE = "Ummat International Hospital | Tertiary Care in Kabul";
 export const DEFAULT_DESCRIPTION =
   "Physician-led hospital on Darulaman Road in Kabul. Neuroscience, surgery, cancer care, diagnostics, and emergency care open all day and night. Book a visit.";
@@ -96,30 +99,36 @@ export function hospitalJsonLd() {
       "Diagnostic",
       "Emergency",
     ],
-    availableLanguage: ["en", "prs", "ps"],
+    availableLanguage: Object.values(LOCALES).map((locale) => locale.htmlLang),
   };
 }
 
 export function websiteJsonLd() {
   const url = getSiteUrl() || "/";
+  const locale = typeof window !== "undefined" ? getLocaleFromPathname(window.location.pathname) : DEFAULT_LOCALE;
+  const doctorsPath = localizePath("/doctors", locale);
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${url}/#website`,
     name: "Ummat International Hospital",
     url,
-    inLanguage: "en",
+    inLanguage: LOCALES[locale].htmlLang,
     publisher: { "@id": `${url}/#hospital` },
     potentialAction: {
       "@type": "SearchAction",
-      target: `${url}/doctors?q={search_term_string}`,
+      target: `${url}${doctorsPath}?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };
 }
 
 export function breadcrumbJsonLd(crumbs = []) {
-  const items = [{ name: "Home", path: "/" }, ...crumbs];
+  const locale = typeof window !== "undefined" ? getLocaleFromPathname(window.location.pathname) : DEFAULT_LOCALE;
+  const items = [{ name: "Home", path: localizePath("/", locale) }, ...crumbs.map((item) => ({
+    ...item,
+    path: item.path ? localizePath(item.path, locale) : undefined,
+  }))];
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -127,7 +136,7 @@ export function breadcrumbJsonLd(crumbs = []) {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: absUrl(item.path || "/"),
+      item: absUrl(item.path || localizePath("/", locale)),
     })),
   };
 }
