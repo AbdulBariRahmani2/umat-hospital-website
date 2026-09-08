@@ -1,142 +1,758 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/" />
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>/ps</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/" />
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>/prs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/" />
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/about" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/about" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/about" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/about" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/about" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/about" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/about" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/about" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/about" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/services/neuroscience</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/neuroscience" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/neuroscience" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/neuroscience" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/neuroscience" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/services/neuroscience</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/neuroscience" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/neuroscience" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/neuroscience" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/neuroscience" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/services/neuroscience</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/neuroscience" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/neuroscience" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/neuroscience" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/neuroscience" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/services/surgery</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/surgery" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/surgery" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/surgery" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/surgery" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/services/surgery</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/surgery" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/surgery" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/surgery" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/surgery" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/services/surgery</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/surgery" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/surgery" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/surgery" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/surgery" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/services/cancer-care</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/cancer-care" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/cancer-care" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/cancer-care" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/cancer-care" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/services/cancer-care</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/cancer-care" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/cancer-care" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/cancer-care" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/cancer-care" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/services/cancer-care</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/cancer-care" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/cancer-care" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/cancer-care" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/cancer-care" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/services/diagnostics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/diagnostics" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/diagnostics" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/diagnostics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/diagnostics" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/services/diagnostics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/diagnostics" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/diagnostics" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/diagnostics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/diagnostics" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/services/diagnostics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/diagnostics" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/diagnostics" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/diagnostics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/diagnostics" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/services/emergency</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/emergency" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/emergency" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/emergency" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/emergency" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/services/emergency</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/emergency" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/emergency" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/emergency" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/emergency" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/services/emergency</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/services/emergency" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/services/emergency" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/services/emergency" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/services/emergency" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/doctors</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/doctors</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/doctors</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/doctors/aria-salehi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/aria-salehi" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/aria-salehi" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/aria-salehi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/aria-salehi" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/doctors/aria-salehi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/aria-salehi" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/aria-salehi" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/aria-salehi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/aria-salehi" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/doctors/aria-salehi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/aria-salehi" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/aria-salehi" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/aria-salehi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/aria-salehi" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/doctors/lina-karimi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/lina-karimi" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/lina-karimi" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/lina-karimi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/lina-karimi" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/doctors/lina-karimi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/lina-karimi" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/lina-karimi" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/lina-karimi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/lina-karimi" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/doctors/lina-karimi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/lina-karimi" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/lina-karimi" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/lina-karimi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/lina-karimi" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/doctors/yasin-noori</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/yasin-noori" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/yasin-noori" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/yasin-noori" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/yasin-noori" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/doctors/yasin-noori</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/yasin-noori" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/yasin-noori" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/yasin-noori" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/yasin-noori" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/doctors/yasin-noori</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/yasin-noori" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/yasin-noori" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/yasin-noori" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/yasin-noori" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/doctors/soraya-ahmadi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/soraya-ahmadi" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/soraya-ahmadi" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/soraya-ahmadi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/soraya-ahmadi" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/doctors/soraya-ahmadi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/soraya-ahmadi" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/soraya-ahmadi" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/soraya-ahmadi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/soraya-ahmadi" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/doctors/soraya-ahmadi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/doctors/soraya-ahmadi" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/doctors/soraya-ahmadi" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/doctors/soraya-ahmadi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/doctors/soraya-ahmadi" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/patients</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/patients" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/patients" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/patients" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/patients" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/patients</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/patients" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/patients" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/patients" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/patients" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/patients</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/patients" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/patients" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/patients" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/patients" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/research</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/research" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/research" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/research" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/research" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/research</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/research" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/research" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/research" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/research" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/research</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/research" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/research" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/research" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/research" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/news</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/news</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/news</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/news/understanding-stroke-signs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/understanding-stroke-signs" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/understanding-stroke-signs" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/understanding-stroke-signs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/understanding-stroke-signs" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/news/understanding-stroke-signs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/understanding-stroke-signs" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/understanding-stroke-signs" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/understanding-stroke-signs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/understanding-stroke-signs" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/news/understanding-stroke-signs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/understanding-stroke-signs" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/understanding-stroke-signs" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/understanding-stroke-signs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/understanding-stroke-signs" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/news/early-cancer-screening</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/early-cancer-screening" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/early-cancer-screening" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/early-cancer-screening" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/early-cancer-screening" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/news/early-cancer-screening</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/early-cancer-screening" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/early-cancer-screening" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/early-cancer-screening" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/early-cancer-screening" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/news/early-cancer-screening</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/early-cancer-screening" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/early-cancer-screening" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/early-cancer-screening" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/early-cancer-screening" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/news/advanced-imaging-explained</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/advanced-imaging-explained" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/advanced-imaging-explained" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/advanced-imaging-explained" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/advanced-imaging-explained" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/news/advanced-imaging-explained</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/advanced-imaging-explained" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/advanced-imaging-explained" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/advanced-imaging-explained" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/advanced-imaging-explained" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/news/advanced-imaging-explained</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/advanced-imaging-explained" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/advanced-imaging-explained" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/advanced-imaging-explained" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/advanced-imaging-explained" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/news/diagnostics-wing-opens</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/diagnostics-wing-opens" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/diagnostics-wing-opens" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/diagnostics-wing-opens" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/diagnostics-wing-opens" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/news/diagnostics-wing-opens</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/diagnostics-wing-opens" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/diagnostics-wing-opens" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/diagnostics-wing-opens" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/diagnostics-wing-opens" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/news/diagnostics-wing-opens</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/diagnostics-wing-opens" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/diagnostics-wing-opens" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/diagnostics-wing-opens" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/diagnostics-wing-opens" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/news/clinical-research-partnership</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/clinical-research-partnership" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/clinical-research-partnership" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/clinical-research-partnership" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/clinical-research-partnership" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/news/clinical-research-partnership</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/clinical-research-partnership" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/clinical-research-partnership" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/clinical-research-partnership" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/clinical-research-partnership" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/news/clinical-research-partnership</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/clinical-research-partnership" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/clinical-research-partnership" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/clinical-research-partnership" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/clinical-research-partnership" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/news/residency-applications-2027</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/residency-applications-2027" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/residency-applications-2027" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/residency-applications-2027" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/residency-applications-2027" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/ps/news/residency-applications-2027</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/residency-applications-2027" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/residency-applications-2027" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/residency-applications-2027" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/residency-applications-2027" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/prs/news/residency-applications-2027</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/news/residency-applications-2027" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/news/residency-applications-2027" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/news/residency-applications-2027" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/news/residency-applications-2027" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/contact" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/contact" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/contact" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/contact" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/contact" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/contact" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/contact" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/contact" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/contact" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/appointment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/appointment" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/appointment" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/appointment" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/appointment" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/appointment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/appointment" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/appointment" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/appointment" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/appointment" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/appointment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/appointment" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/appointment" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/appointment" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/appointment" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/privacy" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/privacy" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/privacy" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/privacy" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/privacy" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/privacy" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/privacy" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/privacy" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/privacy" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/terms" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/terms" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/terms" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/terms" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/terms" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/terms" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/terms" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/terms" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/terms" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/disclaimer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/disclaimer" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/disclaimer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/disclaimer" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/disclaimer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/disclaimer" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>/accessibility</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/accessibility" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/accessibility" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/accessibility" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/ps/accessibility</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/accessibility" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/accessibility" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/accessibility" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/prs/accessibility</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/accessibility" />
+    <xhtml:link rel="alternate" hreflang="ps" href="/ps/accessibility" />
+    <xhtml:link rel="alternate" hreflang="fa-AF" href="/prs/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="/accessibility" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
