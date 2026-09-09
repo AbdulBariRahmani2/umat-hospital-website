@@ -1,5 +1,52 @@
+# Frontend
+node_modules/
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+
 node_modules/
 dist/
 .env
 .env.*
 !.env.example
+
+# Django
+venv/
+backend/venv/
+__pycache__/
+*.py[cod]
+db.sqlite3
+backend/db.sqlite3
