@@ -22,6 +22,9 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  /**
+   * @param {import("react").ChangeEvent<HTMLInputElement>} event
+   */
   const handleChange = (event) => {
     setFormData({
       ...formData,
@@ -29,6 +32,9 @@ export default function Login() {
     });
   };
 
+  /**
+   * @param {import("react").FormEvent<HTMLFormElement>} event
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -43,10 +49,13 @@ export default function Login() {
       );
 
       login(data);
-      navigate("/patients");
-      
+      navigate("/patient-portal");
     } catch (error) {
-      setError(error.message);
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError("Login failed. Please try again.");
+      }
     } finally {
       setLoading(false);
     }

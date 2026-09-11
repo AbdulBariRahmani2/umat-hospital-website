@@ -7,7 +7,7 @@ import {
   FileText,
   Wallet,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
@@ -15,6 +15,9 @@ import { patientGuides } from "@/data/site";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { useI18n } from "@/hooks/use-i18n";
 
+/**
+ * @type {Record<string, any>}
+ */
 const icons = {
   "before-your-visit": ClipboardList,
   "visiting-hours": Clock,
@@ -23,6 +26,9 @@ const icons = {
   billing: Wallet,
 };
 
+/**
+ * @type {Record<string, string>}
+ */
 const patientGuideTitleKey = {
   "before-your-visit": "common.beforeVisit",
   "visiting-hours": "common.visitingHours",
@@ -31,6 +37,9 @@ const patientGuideTitleKey = {
   billing: "common.billingInfo",
 };
 
+/**
+ * @type {Record<string, string>}
+ */
 const patientGuideDescKey = {
   "before-your-visit": "common.beforeVisitDesc",
   "visiting-hours": "common.visitingHoursDesc",
@@ -42,18 +51,26 @@ const patientGuideDescKey = {
 export default function Patients() {
   const { t } = useI18n();
 
+  /**
+   * Seo currently has an overly narrow inferred jsonLd type.
+   * Keep the existing SEO data while avoiding the checkJs error.
+   */
+  const patientBreadcrumbJsonLd = /** @type {any} */ (
+    breadcrumbJsonLd([
+      {
+        name: t("common.patientsCrumbs"),
+        path: "/patients",
+      },
+    ])
+  );
+
   return (
     <main>
       <Seo
         title={t("pages.patients.title")}
         description={t("pages.patients.description")}
         path="/patients"
-        jsonLd={breadcrumbJsonLd([
-          {
-            name: t("common.patientsCrumbs"),
-            path: "/patients",
-          },
-        ])}
+        jsonLd={patientBreadcrumbJsonLd}
       />
 
       <PageHero
@@ -68,7 +85,7 @@ export default function Patients() {
       />
 
       <section className="relative py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10 space-y-8">
+        <div className="mx-auto max-w-[1400px] space-y-8 px-6 lg:px-10">
           {patientGuides.map((guide, i) => {
             const Icon = icons[guide.id] || FileText;
 
@@ -80,19 +97,24 @@ export default function Patients() {
                 >
                   <div className="flex items-start gap-4">
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <Icon className="h-5 w-5" strokeWidth={1.6} />
+                      <Icon
+                        className="h-5 w-5"
+                        strokeWidth={1.6}
+                      />
                     </span>
 
                     <div>
-                      <h2 className="font-heading text-2xl lg:text-3xl font-semibold text-foreground">
+                      <h2 className="font-heading text-2xl font-semibold text-foreground lg:text-3xl">
                         {t(
-                          patientGuideTitleKey[guide.id] || guide.title
+                          patientGuideTitleKey[guide.id] ||
+                            guide.titleI18nKey
                         )}
                       </h2>
 
                       <p className="mt-1 text-sm text-muted-foreground">
                         {t(
-                          patientGuideDescKey[guide.id] || guide.desc
+                          patientGuideDescKey[guide.id] ||
+                            guide.descI18nKey
                         )}
                       </p>
                     </div>
@@ -102,7 +124,7 @@ export default function Patients() {
                     {guide.pointsI18nKeys.map((pointKey) => (
                       <li
                         key={pointKey}
-                        className="text-muted-foreground leading-relaxed pl-4 border-l-2 border-primary/20"
+                        className="border-l-2 border-primary/20 pl-4 leading-relaxed text-muted-foreground"
                       >
                         {t(pointKey)}
                       </li>
@@ -114,7 +136,7 @@ export default function Patients() {
           })}
 
           <Reveal>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 rounded-[2rem] bg-foreground p-8 text-background">
+            <div className="flex flex-col gap-6 rounded-[2rem] bg-foreground p-8 text-background sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 className="font-heading text-2xl font-semibold">
                   {t("common.readyToSchedule")}
@@ -125,12 +147,13 @@ export default function Patients() {
                 </p>
               </div>
 
-              <Button asChild size="lg" className="rounded-full px-7">
-                <Link to="/appointment">
-                  {t("common.bookAppointmentBtn")}
-                  <ArrowRight className="ml-1.5 h-4 w-4" />
-                </Link>
-              </Button>
+              <Link
+                to="/appointment"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                {t("common.bookAppointmentBtn")}
+                <ArrowRight className="ml-1.5 h-4 w-4" />
+              </Link>
             </div>
           </Reveal>
         </div>

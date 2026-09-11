@@ -3,6 +3,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClientInstance } from "@/lib/query-client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import ProtectedRoute from "@/components/ProtectedRoute";
 import PageNotFound from "@/lib/PageNotFound";
 import ScrollToTop from "@/components/ScrollToTop";
 import Layout from "@/components/layout/Layout";
@@ -14,6 +15,7 @@ import ServiceDetail from "@/pages/ServiceDetail";
 import Doctors from "@/pages/Doctors";
 import DoctorDetail from "@/pages/DoctorDetail";
 import Patients from "@/pages/Patients";
+import PatientPortal from "@/pages/PatientPortal";
 import Research from "@/pages/Research";
 import News from "@/pages/News";
 import Article from "@/pages/Article";
@@ -80,6 +82,9 @@ function App() {
           {/* Authentication pages - no Header/Footer */}
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="patient-portal" element={<PatientPortal />} />
+          </Route>
 
           {/* Localized pages */}
           {PREFIXED_LOCALES.map((code) => (
