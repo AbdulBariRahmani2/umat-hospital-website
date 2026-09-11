@@ -18,6 +18,8 @@ import Article from '@/pages/Article';
 import Contact from '@/pages/Contact';
 import Appointment from '@/pages/Appointment';
 import Legal from '@/pages/Legal';
+import Register from '@/pages/Register';
+import Login from '@/pages/Login';
 import { PREFIXED_LOCALES } from '@/i18n/config';
 import DefaultLocaleRedirect from '@/i18n/DefaultLocaleRedirect';
 
@@ -40,6 +42,8 @@ function contentRoutes() {
       <Route path="terms" element={<Legal />} />
       <Route path="disclaimer" element={<Legal />} />
       <Route path="accessibility" element={<Legal />} />
+      <Route path="login" element={<Login />} />
+      <Route path="register" element={<Register />} />
       <Route path="*" element={<PageNotFound />} />
     </>
   );
