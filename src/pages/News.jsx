@@ -5,6 +5,7 @@ import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { articles } from "@/data/articles";
 import { breadcrumbJsonLd } from "@/lib/seo";
+
 import { useI18n } from "@/hooks/use-i18n";
 
 export default function News() {
