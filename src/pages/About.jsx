@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Seo from "@/components/Seo";
+
 import PageHero from "@/components/layout/PageHero";
 import WhyUIH from "@/components/sections/WhyUIH";
 import Reveal from "@/components/Reveal";
