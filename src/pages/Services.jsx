@@ -32,22 +32,16 @@ export default function Services() {
     loadServices();
   }, []);
 
-  const dynamicServices = services
-    .map((service) => {
-      const frontendService = specialties.find(
-        (specialty) => specialty.slug === service.slug
-      );
+  const dynamicServices = services.map((service) => {
+  const frontendService = specialties.find(
+    (specialty) => specialty.slug === service.slug
+  );
 
-      if (!frontendService) {
-        return null;
-      }
-
-      return {
-        ...frontendService,
-        ...service,
-      };
-    })
-    .filter(Boolean);
+  return {
+    ...frontendService,
+    ...service,
+  };
+});
 
   return (
     <main>
@@ -93,11 +87,7 @@ export default function Services() {
                     className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border/70 bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl hover:shadow-foreground/5"
                   >
                     <img
-                      src={
-                        s.image ||
-                        s.image_url ||
-                        `/images/${s.slug}.png`
-                      }
+                      src={s.image}
                       alt={s.image_alt || s.imageAlt}
                       width="640"
                       height="360"
@@ -108,10 +98,12 @@ export default function Services() {
                       <span
                         className={`flex h-12 w-12 items-center justify-center rounded-2xl ${s.bg} ${s.accent}`}
                       >
-                        <s.icon
-                          className="h-5 w-5"
-                          strokeWidth={1.6}
-                        />
+                        {s.icon && (
+                            <s.icon
+                               className="h-5 w-5"
+                               strokeWidth={1.6}
+                              />
+                            )}
                       </span>
 
                       <h2 className="mt-5 font-heading text-2xl font-semibold text-foreground">
