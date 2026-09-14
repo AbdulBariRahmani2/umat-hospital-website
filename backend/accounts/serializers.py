@@ -28,15 +28,31 @@ class AdminUserCreateSerializer(serializers.ModelSerializer):
         min_length=8
     )
 
+    role = serializers.ChoiceField(
+        choices=["user", "staff", "superuser"],
+        write_only=True
+    )
+
     class Meta:
         model = User
-        fields = ["username", "email", "password"]
+        fields = ["username", "email", "password", "role"]
 
     def create(self, validated_data):
+        role = validated_data.pop("role")
+
         user = User.objects.create_user(
             username=validated_data["username"],
             email=validated_data.get("email", ""),
             password=validated_data["password"],
         )
+
+        if role == "staff":
+            user.is_staff = True
+
+        elif role == "superuser":
+            user.is_staff = True
+            user.is_superuser = True
+
+        user.save()
 
         return user

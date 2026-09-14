@@ -19,6 +19,7 @@ export default function AdminUsers() {
     username: "",
     email: "",
     password: "",
+    role: "user",
   });
 
   useEffect(() => {
@@ -57,7 +58,8 @@ export default function AdminUsers() {
       const data = await createAdminUser(
         form.username,
         form.email,
-        form.password
+        form.password,
+        form.role
       );
 
       setUsers((current) => [...current, data.user]);
@@ -66,6 +68,7 @@ export default function AdminUsers() {
         username: "",
         email: "",
         password: "",
+        role: "user",
       });
 
       setSuccess("User created successfully.");
@@ -158,6 +161,18 @@ export default function AdminUsers() {
               minLength={8}
               className="h-11 rounded-xl border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-primary"
             />
+
+            <select
+              name="role"
+              value={form.role}
+              onChange={handleChange}
+              required
+              className="h-11 rounded-xl border border-border bg-background px-4 text-sm text-foreground outline-none focus:border-primary"
+            >
+              <option value="user">User</option>
+              <option value="staff">Staff</option>
+              <option value="superuser">Superuser</option>
+            </select>
 
             <button
               type="submit"

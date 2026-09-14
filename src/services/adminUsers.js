@@ -18,7 +18,7 @@ export async function getAdminUsers() {
   return data;
 }
 
-export async function createAdminUser(username, email, password) {
+export async function createAdminUser(username, email, password, role) {
   const token = localStorage.getItem("auth_access_token");
 
   const response = await fetch(`${API_URL}/admin/users/`, {
@@ -31,6 +31,7 @@ export async function createAdminUser(username, email, password) {
       username,
       email,
       password,
+      role,
     }),
   });
 
@@ -41,6 +42,7 @@ export async function createAdminUser(username, email, password) {
       data.username?.[0] ||
       data.email?.[0] ||
       data.password?.[0] ||
+      data.role?.[0] ||
       data.detail ||
       "Failed to create user."
     );
