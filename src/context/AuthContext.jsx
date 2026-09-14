@@ -75,6 +75,10 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   /**
+   * Login
+   *
+   * Saves both JWT tokens and updates React state.
+   *
    * @param {LoginData} data
    */
   const login = (data) => {
@@ -85,13 +89,21 @@ export function AuthProvider({ children }) {
     setRefreshToken(data.refresh);
   };
 
+  /**
+   * Logout
+   *
+   * Sends both the access token and refresh token
+   * to Django so the refresh token can be blacklisted
+   * and the logout activity can be recorded.
+   */
   const logout = async () => {
     try {
-      if (refreshToken) {
+      if (refreshToken && accessToken) {
         await fetch(`${API_URL}/logout/`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
           },
           body: JSON.stringify({
             refresh: refreshToken,
@@ -110,6 +122,9 @@ export function AuthProvider({ children }) {
     setRefreshToken(null);
   };
 
+  /**
+   * Restore the logged-in user when the application starts.
+   */
   useEffect(() => {
     const restoreUser = async () => {
       if (!accessToken) {

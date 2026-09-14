@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from .models import AuditLog
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -54,5 +55,14 @@ class AdminUserCreateSerializer(serializers.ModelSerializer):
             user.is_superuser = True
 
         user.save()
+
+        admin_user = self.context["request"].user
+
+        AuditLog.objects.create(
+            admin=admin_user,
+            action="create_user",
+            target_user=user,
+            description=f"Created user {user.username} with role {role}.",
+        )
 
         return user

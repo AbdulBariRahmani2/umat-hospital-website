@@ -25,6 +25,7 @@ import Legal from "@/pages/Legal";
 import Register from "@/pages/Register";
 import Login from "@/pages/Login";
 import AdminUsers from "@/pages/AdminUsers";
+import AdminLogs from "@/pages/AdminLogs";
 
 import { PREFIXED_LOCALES } from "@/i18n/config";
 import DefaultLocaleRedirect from "@/i18n/DefaultLocaleRedirect";
@@ -86,6 +87,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="patient-portal" element={<PatientPortal />} />
             <Route path="admin/users" element={<AdminUsers />} />
+            <Route path="admin/logs" element={<AdminLogs />} />
           </Route>
 
           {/* Localized pages */}
