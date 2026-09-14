@@ -1,7 +1,9 @@
 import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
+
 import AppointmentForm from "@/components/AppointmentForm";
 import Reveal from "@/components/Reveal";
+
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { useI18n } from "@/hooks/use-i18n";
 

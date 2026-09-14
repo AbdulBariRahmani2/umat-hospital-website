@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { Link } from "@/i18n/navigation";
 import { Clock } from "lucide-react";
+
 import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import { getArticle } from "@/data/articles";
+
 import PageNotFound from "@/lib/PageNotFound";
 import { absUrl, breadcrumbJsonLd, getSiteUrl } from "@/lib/seo";
 import { useI18n } from "@/hooks/use-i18n";
