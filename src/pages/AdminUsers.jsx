@@ -1,9 +1,21 @@
 import { useEffect, useState } from "react";
-import { Users, UserPlus, Loader2 } from "lucide-react";
+import {
+  Users,
+  UserPlus,
+  UserCheck,
+  UserX,
+  Trash2,
+  Loader2,
+} from "lucide-react";
+
+
 import {
   getAdminUsers,
   createAdminUser,
+  updateAdminUserStatus,
+  deleteAdminUser,
 } from "@/services/adminUsers";
+
 import { useAuth } from "@/context/AuthContext";
 
 export default function AdminUsers() {
@@ -12,6 +24,8 @@ export default function AdminUsers() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [creating, setCreating] = useState(false);
+  const [actionUserId, setActionUserId] = useState(null);
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -80,6 +94,67 @@ export default function AdminUsers() {
     }
   };
 
+  const handleToggleStatus = async (item) => {
+    setError("");
+    setSuccess("");
+    setActionUserId(item.id);
+
+    try {
+      const data = await updateAdminUserStatus(
+        item.id,
+        !item.is_active
+      );
+
+      setUsers((current) =>
+        current.map((userItem) =>
+          userItem.id === item.id
+            ? data.user
+            : userItem
+        )
+      );
+
+      setSuccess(data.message);
+    } catch (err) {
+      console.error("Failed to update user status:", err);
+      setError(
+        err.message || "Failed to update user status."
+      );
+    } finally {
+      setActionUserId(null);
+    }
+  };
+
+  const handleDelete = async (item) => {
+    const confirmed = window.confirm(
+      `Are you sure you want to delete user "${item.username}"?`
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    setError("");
+    setSuccess("");
+    setActionUserId(item.id);
+
+    try {
+      const data = await deleteAdminUser(item.id);
+
+      setUsers((current) =>
+        current.filter(
+          (userItem) => userItem.id !== item.id
+        )
+      );
+
+      setSuccess(data.message);
+    } catch (err) {
+      console.error("Failed to delete user:", err);
+      setError(err.message || "Failed to delete user.");
+    } finally {
+      setActionUserId(null);
+    }
+  };
+
   if (!user?.is_staff) {
     return (
       <main className="min-h-screen bg-background px-6 py-20">
@@ -98,8 +173,9 @@ export default function AdminUsers() {
 
   return (
     <main className="min-h-screen bg-background px-6 py-20">
-      <div className="mx-auto max-w-6xl space-y-8">
+      <div className="mx-auto max-w-7xl space-y-8">
 
+        {/* Page Header */}
         <div>
           <div className="flex items-center gap-3">
             <Users className="h-7 w-7 text-primary" />
@@ -118,6 +194,7 @@ export default function AdminUsers() {
           </p>
         </div>
 
+        {/* Create User */}
         <section className="rounded-3xl border border-border bg-card p-8 shadow-sm">
           <div className="flex items-center gap-3">
             <UserPlus className="h-6 w-6 text-primary" />
@@ -183,7 +260,9 @@ export default function AdminUsers() {
                 <Loader2 className="h-4 w-4 animate-spin" />
               )}
 
-              {creating ? "Creating User..." : "Create User"}
+              {creating
+                ? "Creating User..."
+                : "Create User"}
             </button>
           </form>
 
@@ -200,6 +279,7 @@ export default function AdminUsers() {
           )}
         </section>
 
+        {/* Users Table */}
         <section className="rounded-3xl border border-border bg-card p-8 shadow-sm">
           <h2 className="text-2xl font-bold text-foreground">
             Users
@@ -220,7 +300,7 @@ export default function AdminUsers() {
 
           {!loading && users.length > 0 && (
             <div className="mt-6 overflow-x-auto">
-              <table className="w-full min-w-[700px] text-left">
+              <table className="w-full min-w-[950px] text-left">
                 <thead>
                   <tr className="border-b border-border">
                     <th className="px-4 py-3 text-sm font-semibold text-foreground">
@@ -238,44 +318,134 @@ export default function AdminUsers() {
                     <th className="px-4 py-3 text-sm font-semibold text-foreground">
                       Role
                     </th>
+
+                    <th className="px-4 py-3 text-sm font-semibold text-foreground">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  {users.map((item) => (
-                    <tr
-                      key={item.id}
-                      className="border-b border-border last:border-0"
-                    >
-                      <td className="px-4 py-4 font-medium text-foreground">
-                        {item.username}
-                      </td>
+                  {users.map((item) => {
+                    const isCurrentUser =
+                      item.id === user.id;
 
-                      <td className="px-4 py-4 text-sm text-muted-foreground">
-                        {item.email || "Not provided"}
-                      </td>
+                    const isProcessing =
+                      actionUserId === item.id;
 
-                      <td className="px-4 py-4">
-                        <span
-                          className={
-                            item.is_active
-                              ? "rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700"
-                              : "rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-700"
-                          }
-                        >
-                          {item.is_active ? "Active" : "Inactive"}
-                        </span>
-                      </td>
+                    return (
+                      <tr
+                        key={item.id}
+                        className="border-b border-border last:border-0"
+                      >
+                        {/* Username */}
+                        <td className="px-4 py-4 font-medium text-foreground">
+                          {item.username}
 
-                      <td className="px-4 py-4 text-sm text-muted-foreground">
-                        {item.is_superuser
-                          ? "Superuser"
-                          : item.is_staff
-                            ? "Staff"
-                            : "User"}
-                      </td>
-                    </tr>
-                  ))}
+                          {isCurrentUser && (
+                            <span className="ml-2 rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
+                              You
+                            </span>
+                          )}
+                        </td>
+
+                        {/* Email */}
+                        <td className="px-4 py-4 text-sm text-muted-foreground">
+                          {item.email || "Not provided"}
+                        </td>
+
+                        {/* Status */}
+                        <td className="px-4 py-4">
+                          <span
+                            className={
+                              item.is_active
+                                ? "rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700"
+                                : "rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-700"
+                            }
+                          >
+                            {item.is_active
+                              ? "Active"
+                              : "Inactive"}
+                          </span>
+                        </td>
+
+                        {/* Role */}
+                        <td className="px-4 py-4 text-sm text-muted-foreground">
+                          {item.is_superuser
+                            ? "Superuser"
+                            : item.is_staff
+                              ? "Staff"
+                              : "User"}
+                        </td>
+
+                        {/* Actions */}
+                        <td className="px-4 py-4">
+                          <div className="flex items-center gap-2">
+
+                            {/* Activate / Deactivate */}
+                            {!isCurrentUser && (
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  handleToggleStatus(item)
+                                }
+                                disabled={isProcessing}
+                                title={
+                                  item.is_active
+                                    ? "Deactivate user"
+                                    : "Activate user"
+                                }
+                                className={
+                                  item.is_active
+                                    ? "inline-flex h-9 items-center gap-2 rounded-lg border border-red-200 px-3 text-xs font-semibold text-red-600 transition hover:bg-red-50 disabled:cursor-not-allowed disabled:opacity-50"
+                                    : "inline-flex h-9 items-center gap-2 rounded-lg border border-green-200 px-3 text-xs font-semibold text-green-600 transition hover:bg-green-50 disabled:cursor-not-allowed disabled:opacity-50"
+                                }
+                              >
+                                {isProcessing ? (
+                                  <Loader2 className="h-4 w-4 animate-spin" />
+                                ) : item.is_active ? (
+                                  <UserX className="h-4 w-4" />
+                                ) : (
+                                  <UserCheck className="h-4 w-4" />
+                                )}
+
+                                {item.is_active
+                                  ? "Deactivate"
+                                  : "Activate"}
+                              </button>
+                            )}
+
+                            {/* Delete */}
+                            {!isCurrentUser && (
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  handleDelete(item)
+                                }
+                                disabled={isProcessing}
+                                title="Delete user"
+                                className="inline-flex h-9 items-center gap-2 rounded-lg border border-red-200 px-3 text-xs font-semibold text-red-600 transition hover:bg-red-50 disabled:cursor-not-allowed disabled:opacity-50"
+                              >
+                                {isProcessing ? (
+                                  <Loader2 className="h-4 w-4 animate-spin" />
+                                ) : (
+                                  <Trash2 className="h-4 w-4" />
+                                )}
+
+                                Delete
+                              </button>
+                            )}
+
+                            {isCurrentUser && (
+                              <span className="text-xs text-muted-foreground">
+                                Current account
+                              </span>
+                            )}
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
