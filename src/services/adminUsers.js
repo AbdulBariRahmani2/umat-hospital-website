@@ -29,6 +29,7 @@ export async function createAdminUser(
   password,
   role
 ) {
+
   const token = localStorage.getItem("auth_access_token");
 
   const response = await fetch(`${API_URL}/admin/users/`, {
@@ -45,6 +46,8 @@ export async function createAdminUser(
     }),
   });
 
+
+  
   const data = await response.json();
 
   if (!response.ok) {
