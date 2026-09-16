@@ -8,14 +8,12 @@ import {
   Loader2,
 } from "lucide-react";
 
-
 import {
   getAdminUsers,
   createAdminUser,
   updateAdminUserStatus,
   deleteAdminUser,
 } from "@/services/adminUsers";
-
 import { useAuth } from "@/context/AuthContext";
 
 export default function AdminUsers() {

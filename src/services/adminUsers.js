@@ -9,6 +9,7 @@ export async function getAdminUsers() {
     },
   });
 
+
   const data = await response.json();
 
   if (!response.ok) {
