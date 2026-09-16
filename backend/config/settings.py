@@ -11,19 +11,24 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / ".env")
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t$bukrjo!oe+l^=^6ki2hua556t1iv#no+^tdo8@u_gw(^tc-1'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DJANGO_DEBUG", "True").lower() == "true"
 
 ALLOWED_HOSTS = []
 
@@ -137,9 +142,14 @@ MAILERS = {
 }
 
 
+# CORS
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
+
+
+# Django REST Framework
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -147,6 +157,8 @@ REST_FRAMEWORK = {
     ),
 }
 
+
+# JWT
 
 from datetime import timedelta
 
