@@ -1,7 +1,11 @@
 import { Toaster } from "@/components/ui/toaster";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClientInstance } from "@/lib/query-client";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 import ProtectedRoute from "@/components/ProtectedRoute";
 import PageNotFound from "@/lib/PageNotFound";
@@ -34,6 +38,7 @@ function contentRoutes() {
   return (
     <>
       <Route index element={<Home />} />
+
       <Route path="about" element={<About />} />
 
       <Route path="services" element={<Services />} />
@@ -66,7 +71,7 @@ function contentRoutes() {
 function App() {
   return (
     <QueryClientProvider client={queryClientInstance}>
-      <Router>
+      <Router basename="/umat-hospital-website">
         <ScrollToTop />
 
         <Routes>
@@ -84,10 +89,22 @@ function App() {
           {/* Authentication pages - no Header/Footer */}
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+
           <Route element={<ProtectedRoute />}>
-            <Route path="patient-portal" element={<PatientPortal />} />
-            <Route path="admin/users" element={<AdminUsers />} />
-            <Route path="admin/logs" element={<AdminLogs />} />
+            <Route
+              path="patient-portal"
+              element={<PatientPortal />}
+            />
+
+            <Route
+              path="admin/users"
+              element={<AdminUsers />}
+            />
+
+            <Route
+              path="admin/logs"
+              element={<AdminLogs />}
+            />
           </Route>
 
           {/* Localized pages */}
