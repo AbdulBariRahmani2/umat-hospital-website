@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Seo from "@/components/Seo";
+
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/Reveal";
 import Faq from "@/components/sections/Faq";
 import { faqs } from "@/data/faqs";
+
 import { breadcrumbJsonLd, faqJsonLd, hospitalJsonLd } from "@/lib/seo";
 import { useI18n } from "@/hooks/use-i18n";
 
