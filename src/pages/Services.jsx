@@ -9,6 +9,7 @@ import Reveal from "@/components/Reveal";
 import { specialties } from "@/data/specialties";
 
 import { getServices } from "@/services/services";
+
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { useI18n } from "@/hooks/use-i18n";
 
