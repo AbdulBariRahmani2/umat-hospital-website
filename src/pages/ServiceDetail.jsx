@@ -4,9 +4,12 @@ import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
+
 import Reveal from "@/components/Reveal";
 import { getSpecialty } from "@/data/specialties";
+
 import { getDoctorsByDept } from "@/data/doctors";
+
 import PageNotFound from "@/lib/PageNotFound";
 import { absUrl, breadcrumbJsonLd, getSiteUrl } from "@/lib/seo";
 import { useI18n } from "@/hooks/use-i18n";

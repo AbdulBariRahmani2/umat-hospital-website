@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { registerUser } from "@/services/auth";
 
 export default function Register() {
