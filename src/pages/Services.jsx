@@ -3,8 +3,11 @@ import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import Seo from "@/components/Seo";
 import PageHero from "@/components/layout/PageHero";
+
 import Reveal from "@/components/Reveal";
+
 import { specialties } from "@/data/specialties";
+
 import { getServices } from "@/services/services";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { useI18n } from "@/hooks/use-i18n";
