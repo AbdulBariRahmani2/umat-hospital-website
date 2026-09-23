@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import Seo from "@/components/Seo";
-
 import PageHero from "@/components/layout/PageHero";
-
 import Reveal from "@/components/Reveal";
 
 import { specialties } from "@/data/specialties";
